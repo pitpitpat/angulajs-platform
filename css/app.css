@@ -1,0 +1,97 @@
+/* ------------------- GENERAL ------------------- */
+html,
+body {
+    margin:0;
+    padding:0;
+    height:100%;
+}
+
+body {
+    font-size: 100%;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #F7F7F7;
+}
+
+* {
+    box-shadow: none !important;
+}
+
+.fs-11 {
+    font-size: 1.1rem;
+}
+
+.fs-09 {
+    font-size: 0.9rem;
+}
+
+.fs-08 {
+    font-size: 0.8rem;
+}
+
+.fw-bold {
+    font-weight: bold;
+}
+
+.fw-lighter {
+    font-weight: lighter;
+}
+
+.bottom-0 {
+    bottom: 0;
+}
+
+/* ------------------- APP BODY ------------------- */
+.app-body {
+    height: 100%;
+}
+
+/* ------------------- PLATFORM BODY ------------------- */
+.platform-body {
+    padding-top: 56px;
+    min-height: 100%;
+    position: relative;
+}
+
+/* ------------------- NAVBAR ------------------- */
+.bg-purple {
+    background-color: #4b4ba3 !important; 
+}
+
+.navbar-logo {
+    width: 35px;
+}
+
+/* ------------------- MAIN VIEW ------------------- */
+.main-view {
+    padding-bottom: 100px;
+}
+
+/* ------------------- FOOTER ------------------- */
+.main-footer {
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:24px;
+}
+
+.main-footer .container .row .col {
+    text-align: center;
+}
+
+.main-footer .container .row .col {
+    color: #606060;
+    font-weight: 300;
+}
+
+/* ------------------- SCROLLBAR ------------------ */
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(50, 50, 50, 0.8);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}

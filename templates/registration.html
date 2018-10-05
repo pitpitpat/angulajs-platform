@@ -1,0 +1,37 @@
+<div class="registration pt-3">
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<div class="col-8">
+				<form name="newTraineeForm">
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label>Όνομα</label>
+							<input ng-model="newTrainee.name" type="text" class="form-control" placeholder="Όνομα ασκούμενου" required>
+						</div>
+						<div class="form-group col-md-6">
+							<label>Επίθετο</label>
+							<input ng-model="newTrainee.surname" type="text" class="form-control" placeholder="Επίθετο ασκούμενου" required>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col-md-3">
+							<label>Ηλικία</label>
+							<input ng-model="newTrainee.age" type="number" class="form-control" placeholder="Ηλικία ασκούμενου" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="form-check">
+							<input ng-model="newTrainee.gender" value="male" class="form-check-input" type="radio" name="exampleRadios" checked>
+							<label class="form-check-label">Άνδρας</label>
+						</div>
+						<div class="form-check">
+							<input ng-model="newTrainee.gender" value="female" class="form-check-input" type="radio" name="exampleRadios">
+							<label class="form-check-label">Γυναίκα</label>
+						</div>
+					</div>
+					<button ng-click="insertNewTrainee()" ng-disabled="!newTraineeForm.$valid" type="submit" class="btn btn-success">Εγγραφή</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
