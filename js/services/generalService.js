@@ -1,7 +1,7 @@
 (function() {
 
 	angular.module('healthmastersApp')
-	.factory('generalService', function($rootScope, $http) {
+	.factory('generalService', function($rootScope, $http, generalUtility) {
 
 		var generalServiceFactory = {};
 
@@ -17,13 +17,22 @@
 		};
 
 		generalServiceFactory.insertNewTrainee = function(newTrainee) {
-			var endpoint = '/trainee/new/insert';
+			var endpoint = '/trainee/insert';
 			var url = $rootScope.healthmastersAPI + endpoint;
 
 			var preparedNewTrainee = {
 				name: newTrainee.name,
 				surname: newTrainee.surname,
-				age: newTrainee.age,
+				fathername: newTrainee.fathername,
+				address: newTrainee.address,
+				birth_date: generalUtility.prepareDate(newTrainee.birth_date),
+				adt: newTrainee.adt,
+				occupation: newTrainee.occupation,
+				contact_phone: newTrainee.contact_phone,
+				emergency_phone: newTrainee.emergency_phone,
+				registration_date: generalUtility.prepareDate(newTrainee.registration_date),
+				height: newTrainee.height,
+				weight: newTrainee.weight,
 				gender: newTrainee.gender
 			};
 

@@ -9,6 +9,13 @@
 			$rootScope.healthmastersAPI = 'http://api.ppserver.me';
 		};
 
+		generalUtilityFactory.prepareDate = function(date){
+			if (date) {
+				return date.getDate() + '-' + (date.getMonth()+1) + '-' + date.getFullYear();
+			}
+			return null;
+		};
+
 		return generalUtilityFactory;
 
 	});
