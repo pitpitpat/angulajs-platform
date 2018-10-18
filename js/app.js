@@ -2,12 +2,26 @@
 
 	angular.module("healthmastersApp", [
 		"ngRoute",
+		"angular-jwt",
 		"angular-loading-bar"
 	])
-	.config(function($routeProvider, cfpLoadingBarProvider) {
+	.config(function($httpProvider, $routeProvider, cfpLoadingBarProvider, jwtOptionsProvider) {
 
 		/* ================= Loading Spinner ================= */
 		cfpLoadingBarProvider.includeSpinner = false;
+
+		/* ================= JWT Authendication ================= */
+		jwtOptionsProvider.config({
+			tokenGetter: function(options) {
+                token = localStorage.healthmastersJWT;
+				if (!token) {
+					window.location.href = "/login";
+				}
+				return token;
+			},
+			whiteListedDomains: ["api.ppserver.me", "localhost"]
+		});
+		$httpProvider.interceptors.push("jwtInterceptor");
 
 		/* ================= Routing ================= */
 		$routeProvider
