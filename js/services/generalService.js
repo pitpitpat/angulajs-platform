@@ -5,7 +5,7 @@
 
 		var generalServiceFactory = {};
 
-		generalServiceFactory.getUserList = function() {
+		generalServiceFactory.getAllTrainees = function() {
 			var endpoint = '/trainee/all/get';
 			var url = $rootScope.healthmastersAPI + endpoint;
 
@@ -13,6 +13,23 @@
 				method: "GET",
 				url: url,
 				headers: { 'Content-Type': 'application/json' }
+			});
+		};
+
+		generalServiceFactory.login = function(email, password) {
+			var endpoint = '/login';
+			var url = $rootScope.healthmastersAPI + endpoint;
+
+			var credentials = {
+				email: email,
+				password: password
+			};
+
+			return $http({
+				method: "POST",
+				url: url,
+				headers: { 'Content-Type': 'application/json' },
+				data: credentials
 			});
 		};
 
