@@ -49,6 +49,11 @@ body {
     bottom: 0;
 }
 
+.hover-dark:hover {
+    background-color: rgba(150,150,150,0.2);
+    cursor: pointer;
+}
+
 /* ------------------- APP BODY ------------------- */
 .app-body {
     height: 100%;
