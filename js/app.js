@@ -25,19 +25,19 @@
 
 		/* ================= Routing ================= */
 		$routeProvider
-		.when("/registration", {
-			templateUrl: '../templates/registration.html',
-			controller: 'registrationCtrl'
+		.when("/trainee/add", {
+			templateUrl: '../templates/add-trainee.html',
+			controller: 'addTraineeCtrl'
 		})
 		.when("/measurements", {
 			templateUrl: '../templates/measurements.html',
 			controller: 'measurementsCtrl'
 		})
 		.when("/", {
-			redirectTo: '/registration'
+			redirectTo: '/trainee/add'
 		})
 		.otherwise({
-			redirectTo: '/registration'
+			redirectTo: '/trainee/add'
 		});
 
 	})
