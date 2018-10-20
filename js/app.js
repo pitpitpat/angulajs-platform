@@ -29,9 +29,16 @@
 			templateUrl: '../templates/add-trainee.html',
 			controller: 'addTraineeCtrl'
 		})
-		.when("/measurements", {
-			templateUrl: '../templates/measurements.html',
-			controller: 'measurementsCtrl'
+		.when("/measurement/add", {
+			templateUrl: '../templates/add-measurement.html',
+			controller: 'addMeasurementsCtrl'
+		})
+		.when("/logout", {
+			template: "",
+			controller: function() {
+				delete localStorage.healthmastersJWT;
+				window.location.href = "/login";
+  			}
 		})
 		.when("/", {
 			redirectTo: '/trainee/add'

@@ -1,52 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<title>Login | Healthmasters</title>
 		<link rel="icon" type="image/x-icon" href="../img/logo-healthmasters.png"/>
 
 		<!-- CSS -->
-		<link rel="stylesheet" href="../css/open-sans.css">
 		<link rel="stylesheet" href="../bower_components/bootstrap-4.1.3/css/bootstrap.min.css">
-		<link rel="stylesheet" href="../bower_components/fontawesome-5.3.1/css/all.css">
-		<link rel='stylesheet' href='../bower_components/angular-loading-bar/build/loading-bar.min.css' type='text/css' media='all'>
-		<link rel="stylesheet" href="../css/app.css">
-
+		<link rel="stylesheet" href="../bower_components/fontawesome-5.3.1/css/all.min.css" type="text/css">
+		<link rel="stylesheet" href="../bower_components/angular-loading-bar/build/loading-bar.min.css" type="text/css" media="all">
+		<link rel="stylesheet" href="../css/sb-admin.css">
 	</head>
-	<body>
+	<body class="bg-dark">
 
-		<div ng-app="loginApp" class="app-body">
-			<div class="container-fluid">
-				<div class="row py-4">
-					<div class="col">
-						<div class="row justify-content-center">
-							<div class="col-md-2">
-								<img class="w-100" src="../img/logo-healthmasters.png">
-							</div>
-						</div>
-						<div class="row justify-content-center">
-							<div class="col-md-4">
-								<div class="bg-white p-4 border rounded shadow-sm">
-									<div class="text-center">
-										<h5>Είσοδος Healthmasters</h5>
-									</div>
-									<hr class="my-4">
-									<form class="label-09" name="loginForm">
-										<div class="form-group">
-											<label>Email</label>
-											<input ng-model="login.email" type="text" class="form-control form-control-sm" placeholder="Email" required>
-										</div>
-										<div class="form-group">
-											<label>Password</label>
-											<input ng-model="login.password" type="password" class="form-control form-control-sm" placeholder="Password" required>
-										</div>
-										<button ng-click="login()" ng-disabled="!loginForm.$valid" type="submit" class="btn btn-success">Είσοδος</button>
-									</form>
+		<div ng-app="loginApp">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-2 text-center">
+						<img class="mt-5" src="../img/logo-healthmasters.png" style="width: 8rem;">
+					</div>
+				</div>
+				<div class="card card-login mx-auto mt-5">
+					<div class="card-header text-center">The Healthmasters</div>
+					<div class="card-body">
+						<form name="loginForm">
+							<div class="form-group">
+								<div class="form-label-group">
+									<input ng-model="credentials.email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
+									<label for="inputEmail">Email</label>
 								</div>
 							</div>
-						</div>
+							<div class="form-group">
+								<div class="form-label-group">
+									<input ng-model="credentials.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
+									<label for="inputPassword">Κωδικός</label>
+								</div>
+							</div>
+							<button type="submit" ng-click="login()" ng-disabled="!loginForm.$valid" class="btn btn-primary btn-block" href="index.html">Είσοδος</button>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -58,8 +52,7 @@
 		<script src="../bower_components/angular/angular.min.js"></script>
 		<script src="../bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
 
-		<!-- AngularJS [app] -->
+		<!-- AngularJS [app, utilities, services, controllers] -->
 		<script src="loginApp.js"></script>
-
 	</body>
 </html>
