@@ -1,14 +1,17 @@
 /* ------------------- GENERAL ------------------- */
-html,
-body {
-    margin:0;
-    padding:0;
-    height:100%;
+html {
+    margin: 0;
+    padding: 0;
 }
 
 body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
     font-size: 100%;
-    font-family: 'Open Sans', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     background-color: #F7F7F7;
 }
 
@@ -17,7 +20,7 @@ body {
 }
 
 ::placeholder {
-    font-size: 0.8rem;
+    font-size: 0.95rem;
     font-weight: 300;
 }
 
@@ -50,7 +53,7 @@ body {
 }
 
 .hover-dark:hover {
-    background-color: rgba(150,150,150,0.2);
+    background-color: rgba(150, 150, 150, 0.2);
     cursor: pointer;
 }
 
@@ -68,7 +71,7 @@ body {
 
 /* ------------------- NAVBAR ------------------- */
 .bg-purple {
-    background-color: #4b4ba3 !important; 
+    background-color: #4b4ba3 !important;
 }
 
 .navbar-logo {
@@ -82,10 +85,10 @@ body {
 
 /* ------------------- FOOTER ------------------- */
 .main-footer {
-    position:absolute;
-    bottom:0;
-    width:100%;
-    height:24px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 24px;
 }
 
 .main-footer .container .row .col {
@@ -107,5 +110,5 @@ body {
     -webkit-border-radius: 10px;
     border-radius: 10px;
     background: rgba(50, 50, 50, 0.8);
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }

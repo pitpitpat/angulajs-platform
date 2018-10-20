@@ -1,12 +1,11 @@
 <div class="add-trainee">
-	<div class="container-fluid">
-		<div class="row justify-content-center">
-			<div class="col-md-6">
-				<div class="bg-white p-4 border rounded shadow-sm">
-					<div class="text-center">
-						<h5>Εγγραφή Νέου Ασκούμενου</h5>
-					</div>
-					<hr class="my-4">
+	<div class="row justify-content-center">
+		<div class="col">
+			<div class="card shadow-sm">
+				<div class="card-header">
+					<i class="fas fa-user mr-1"></i> Προσθήκη Ασκούμενου
+				</div>
+				<div class="card-body">
 					<form class="label-09" name="newTraineeForm">
 						<div class="form-row">
 							<div class="form-group col-md-4">
@@ -81,7 +80,7 @@
 								<input ng-model="newTrainee.registration_date" type="date" class="form-control form-control-sm" required>
 							</div>
 						</div>
-						<button ng-click="insertNewTrainee()" ng-disabled="!newTraineeForm.$valid || !newTrainee.gender" type="submit" class="btn btn-success">Εγγραφή</button>
+						<button ng-click="insertNewTrainee()" ng-disabled="!newTraineeForm.$valid || !newTrainee.gender" type="submit" class="btn btn-success">Προσθήκη</button>
 					</form>
 				</div>
 			</div>

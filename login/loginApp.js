@@ -3,7 +3,7 @@
 	angular.module("loginApp", [])
 	.run(function ($rootScope, $http) {
 
-		$rootScope.login = {
+		$rootScope.credentials = {
 			email: null,
 			password: null
 		};
@@ -28,7 +28,7 @@
 		};
 
 		$rootScope.login = function() {
-			login($rootScope.login.email, $rootScope.login.password)
+			login($rootScope.credentials.email, $rootScope.credentials.password)
 			.then(function(response) {
 				localStorage.healthmastersJWT = response.data.token;
 				window.location.href = "/#!/";
