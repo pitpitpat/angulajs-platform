@@ -24,6 +24,26 @@
 			return null;
 		};
 
+		generalUtilityFactory.prepareNewTrainee = function(trainee, id){
+			var preparedNewTrainee = {
+				id: id,
+				name: trainee.name,
+				surname: trainee.surname,
+				fullname: trainee.name + ' ' + trainee.surname,
+				fathername: trainee.fathername,
+				address: trainee.address,
+				adt: trainee.adt,
+				occupation: trainee.occupation,
+				contact_phone: trainee.contact_phone,
+				emergency_phone: trainee.emergency_phone,
+				height: trainee.height,
+				weight: trainee.weight,
+				gender: trainee.gender
+			};
+
+			return preparedNewTrainee;
+		};
+
 		return generalUtilityFactory;
 
 	});

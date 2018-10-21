@@ -1,9 +1,9 @@
 (function() {
 
 	angular.module('healthmastersApp')
-	.controller('addTraineeCtrl', function($rootScope, $scope, generalService) {
+	.controller('addTraineeCtrl', function($rootScope, $scope, generalService, generalUtility) {
 
-		$rootScope.currentPage = 'add_trainee';
+		$rootScope.currentPage = 'add';
 		$scope.newTrainee = {};
 
 		var initNewTrainee = function() {
@@ -27,6 +27,9 @@
 		$scope.insertNewTrainee = function() {
 			generalService.insertNewTrainee($scope.newTrainee).then(function(response) {
 				console.log(response.data);
+				var preparedNewTrainee = generalUtility.prepareNewTrainee($scope.newTrainee, response.data.new_trainee_id);
+				$rootScope.allTrainees.push(preparedNewTrainee);
+				console.log($rootScope.allTrainees);
 				initNewTrainee();
 			});
 		}
