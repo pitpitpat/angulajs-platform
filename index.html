@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<title>Manage | Healthmasters</title>
 		<link rel="icon" type="image/x-icon" href="img/logo-healthmasters.png"/>
@@ -12,7 +12,7 @@
 		<link rel="stylesheet" href="css/open-sans.css">
 		<link rel="stylesheet" href="bower_components/bootstrap-4.1.3/css/bootstrap.min.css">
 		<link rel="stylesheet" href="bower_components/fontawesome-5.3.1/css/all.css">
-		<link rel='stylesheet' href='bower_components/angular-loading-bar/build/loading-bar.min.css' type='text/css' media='all'>
+		<link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css" type="text/css" media="all">
 		<link rel="stylesheet" href="css/app.css">
 		<link rel="stylesheet" href="css/sb-admin.css">
 	</head>
@@ -55,46 +55,39 @@
 
 				<!-- Sidebar -->
 				<ul class="sidebar navbar-nav">
-					<li class="nav-item active">
-						<a class="nav-link" href="index.html">
-							<i class="fas fa-fw fa-tachometer-alt"></i>
+					<li class="nav-item" ng-class="{'active': currentPage === 'overview'}">
+						<a class="nav-link" href="">
+							<i class="fas fa-fw fa-users"></i>
 							<span>Συνολική Εικόνα</span>
 						</a>
 					</li>
-					<li class="nav-item" id="addAccordion">
+					<li class="nav-item" ng-class="{'active': currentPage === 'add'}" id="addAccordion">
 						<a class="nav-link" id="addHeader" href="" role="button" data-toggle="collapse" data-target="#addCollapse" aria-expanded="false" aria-controls="addCollapse">
 							<i class="fas fa-fw fa-plus"></i>
 							<span>Προσθήκη</span>
 						</a>
 						<div id="addCollapse" class="collapse bg-white rounded mx-2" aria-labelledby="addHeader" data-parent="#addAccordion">
-							<a class="dropdown-item fs-09 rounded" href="#!/trainee/add"><i class="fas fa-user text-gray-dark mr-1"></i> Ασκούμενου</a>
-							<a class="dropdown-item fs-09 rounded" href="#!/measurement/add"><i class="fas fa-weight text-gray-dark mr-1"></i> Μέτρησης</a>
+							<a class="dropdown-item py-2 fs-09 rounded" href="#!/trainee/add"><i class="fas fa-user text-gray-dark mr-1"></i> Ασκούμενου</a>
+							<a class="dropdown-item py-2 fs-09 rounded" href="#!/measurement/add"><i class="fas fa-weight text-gray-dark mr-1"></i> Μέτρησης</a>
 						</div>
 					</li>
-					<li class="nav-item" id="findAccordion">
+					<li class="nav-item" ng-class="{'active': currentPage === 'find'}" id="findAccordion">
 						<a class="nav-link" id="findHeader" href="" role="button" data-toggle="collapse" data-target="#findCollapse" aria-expanded="false" aria-controls="findCollapse">
 							<i class="fas fa-fw fa-search"></i>
 							<span>Εύρεση</span>
 						</a>
 						<div id="findCollapse" class="collapse bg-white rounded mx-2" aria-labelledby="findHeader" data-parent="#findAccordion">
-							<a class="dropdown-item fs-09 rounded" href="login.html"><i class="fas fa-user text-gray-dark mr-1"></i> Ασκούμενου</a>
-							<a class="dropdown-item fs-09 rounded" href="register.html"><i class="fas fa-weight text-gray-dark mr-1"></i> Μέτρησης</a>
+							<a class="dropdown-item py-2 fs-09 rounded" href="#!/trainee/find"><i class="fas fa-user text-gray-dark mr-1"></i> Ασκούμενου</a>
+							<a class="dropdown-item py-2 fs-09 rounded" href="#!/measurement/find"><i class="fas fa-weight text-gray-dark mr-1"></i> Μέτρησης</a>
 						</div>
 					</li>
 				</ul>
 
 				<div id="content-wrapper">
 					<div class="container-fluid">
-						<!-- Breadcrumbs-->
-						<ol class="breadcrumb">
-							<li class="breadcrumb-item">
-								<a href="#">Συνολική Εικόνα</a>
-							</li>
-							<li class="breadcrumb-item active">Overview</li>
-						</ol>
 
-						<div ng-view class="main-view">
-						</div>
+						<div ng-view class="main-view"></div>
+
 					</div>
 					<!-- /.container-fluid -->
 
@@ -122,15 +115,15 @@
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+							<h5 class="modal-title" id="exampleModalLabel">Έτοιμος να φύγεις?</h5>
 							<button class="close" type="button" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">×</span>
 							</button>
 						</div>
-						<div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+						<div class="modal-body">Επίλεξε "Αποσύνδεση" παρακάτω αν είσαι έτοιμος να αποχωρήσεις απο αυτή τη σελίδα.</div>
 						<div class="modal-footer">
-							<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-							<a class="btn btn-primary" href="#!/logout">Logout</a>
+							<button class="btn btn-secondary" type="button" data-dismiss="modal">Ακύρωση</button>
+							<a class="btn btn-primary" href="#!/logout">Αποσύνδεση</a>
 						</div>
 					</div>
 				</div>

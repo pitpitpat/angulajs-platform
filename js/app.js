@@ -48,9 +48,18 @@
 		});
 
 	})
-	.run(function ($rootScope, generalUtility) {
+	.run(function ($rootScope, generalUtility, generalService) {
 
 		generalUtility.init_app();
+
+		generalService.getAllTrainees().then(function(response) {
+			$rootScope.allTrainees = response.data.all_trainees;
+			for (index in $rootScope.allTrainees) {
+				var trainee = $rootScope.allTrainees[index];
+				$rootScope.allTrainees[index].fullname = trainee.name + ' ' + trainee.surname;
+			}
+			console.log($rootScope.allTrainees);
+		});
 
 	});
 

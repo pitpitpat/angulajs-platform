@@ -57,6 +57,11 @@ body {
     cursor: pointer;
 }
 
+/* -------------------- LOGIN --------------------- */
+.login-logo {
+    width: 8rem;
+}
+
 /* ------------------- APP BODY ------------------- */
 .app-body {
     height: 100%;
