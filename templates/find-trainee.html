@@ -1,0 +1,50 @@
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+	<li class="breadcrumb-item">
+		<a href="">Εύρεση</a>
+	</li>
+	<li class="breadcrumb-item active">Ασκούμενος</li>
+</ol>
+<div class="add-trainee">
+	<div class="row justify-content-center">
+		<div class="col">
+			<div class="card shadow-sm">
+				<div class="card-header">
+					<i class="fas fa-user mr-1"></i> Εύρεση Ασκούμενου
+				</div>
+				<div class="card-body">
+					<table st-table="displayedTrainees" st-safe-src="allTrainees" class="table table-striped table-hover">
+						<thead>
+							<tr>
+								<th colspan="4" class="border-top-0 border-bottom-0"><input st-search="" class="form-control" placeholder="Αναζήτηση..." type="text" /></th>
+							</tr>
+							<tr>
+								<th st-ratio="32" st-sort="name">Όνομα</th>
+								<th st-ratio="32" st-sort="surname">Επίθετο</th>
+								<th st-ratio="30" st-sort="gender">Φύλο</th>
+								<th st-ratio="6">Διαγραφή</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="fs-09" ng-repeat="trainee in displayedTrainees">
+								<td st-ratio="32">{{trainee.name}}</td>
+								<td st-ratio="32">{{trainee.surname}}</td>
+								<td st-ratio="30">{{trainee.gender === 'male' ? 'Άνδρας' : 'Γυναίκα'}}</td>
+								<td st-ratio="6" class="text-center">
+									<button type="button" ng-click="" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button>
+								</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="4" class="text-center">
+									<div st-pagination st-items-by-page="10" st-displayed-pages="10" st-template="templates/custom-templates/pagination.html"></div>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
