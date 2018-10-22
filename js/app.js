@@ -3,7 +3,8 @@
 	angular.module("healthmastersApp", [
 		"ngRoute",
 		"angular-jwt",
-		"angular-loading-bar"
+		"angular-loading-bar",
+		"smart-table"
 	])
 	.config(function($httpProvider, $routeProvider, cfpLoadingBarProvider, jwtOptionsProvider) {
 
@@ -32,6 +33,10 @@
 		.when("/measurement/add", {
 			templateUrl: '../templates/add-measurement.html',
 			controller: 'addMeasurementsCtrl'
+		})
+		.when("/trainee/find", {
+			templateUrl: '../templates/find-trainee.html',
+			controller: 'findTraineeCtrl'
 		})
 		.when("/logout", {
 			template: "",
