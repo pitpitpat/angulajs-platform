@@ -57,6 +57,10 @@ body {
 	cursor: pointer;
 }
 
+.text-pink {
+	color: #FF69B4;
+}
+
 /* -------------------- LOGIN --------------------- */
 .login-logo {
 	width: 8rem;
