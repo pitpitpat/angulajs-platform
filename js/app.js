@@ -38,6 +38,10 @@
 			templateUrl: '../templates/find-trainee.html',
 			controller: 'findTraineeCtrl'
 		})
+		.when("/trainee/show-update/:ID", {
+			templateUrl: '../templates/show-update-trainee.html',
+			controller: 'showUpdateTraineeCtrl'
+		})
 		.when("/logout", {
 			template: "",
 			controller: function() {
