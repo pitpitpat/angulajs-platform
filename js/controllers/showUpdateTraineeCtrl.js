@@ -13,6 +13,10 @@
 			}
 		});
 
+		$scope.toggleEditMode = function() {
+			$scope.mode = 'edit';
+		}
+
 		// $scope.insertNewTrainee = function() {
 		// 	generalService.insertNewTrainee($scope.newTrainee).then(function(response) {
 		// 		console.log(response.data);

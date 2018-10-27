@@ -16,6 +16,11 @@
 					<div ng-if="mode === 'show'" class="row justify-content-center">
 						<div class="col-md-6">
 							<div class="row mb-2">
+								<div class="col">
+									<button ng-click="toggleEditMode()" class="btn btn-primary">Edit</button>
+								</div>
+							</div>
+							<div class="row mb-2">
 								<div class="col-md-5">
 									<div>Επίθετο:</div>
 								</div>
@@ -121,7 +126,7 @@
 							</div>
 						</div>
 					</div>
-					<form ng-if="mode === 'update'" class="label-09" name="traineeForm">
+					<form ng-if="mode === 'edit'" class="label-09" name="traineeForm">
 						<div class="form-row justify-content-center">
 							<div class="form-group col-md-3">
 								<label>Επίθετο</label><label class="text-danger">*</label>
