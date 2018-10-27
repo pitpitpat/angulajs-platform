@@ -10,7 +10,7 @@
 		<div class="col">
 			<div class="card shadow-sm">
 				<div class="card-header">
-					<i class="fas fa-user mr-1"></i> Εύρεση Ασκούμενου
+					<i class="fas fa-table mr-1"></i> Πίνακας Ασκούμενων
 				</div>
 				<div class="card-body">
 					<table st-table="displayedTrainees" st-safe-src="allTrainees" class="table table-striped table-hover">
@@ -37,10 +37,10 @@
 								</td>
 								<td st-ratio="26">{{trainee.occupation ? trainee.occupation:'-'}}</td>
 								<td st-ratio="6" class="text-center">
-									<button type="button" ng-click="" class="btn btn-sm btn-secondary"><i class="far fa-address-card"></i></button>
+									<a role="button" ng-href="#!/trainee/show-update/{{trainee.id}}" class="btn btn-sm btn-secondary"><i class="far fa-address-card"></i></a>
 								</td>
 								<td st-ratio="6" class="text-center">
-									<button type="button" ng-click="" class="btn btn-sm btn-secondary"><i class="fas fa-weight"></i></button>
+									<a role="button" ng-href="#!/measurements/show/{{trainee.id}}" class="btn btn-sm btn-secondary"><i class="fas fa-weight"></i></a>
 								</td>
 								<td st-ratio="6" class="text-center">
 									<button type="button" ng-click="" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button>
@@ -49,7 +49,7 @@
 						</tbody>
 						<tfoot>
 							<tr>
-								<td colspan="4" class="text-center">
+								<td colspan="7" class="text-center">
 									<div st-pagination st-items-by-page="10" st-displayed-pages="10" st-template="templates/custom-templates/pagination.html"></div>
 								</td>
 							</tr>

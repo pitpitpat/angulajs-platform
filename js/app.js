@@ -38,6 +38,14 @@
 			templateUrl: '../templates/find-trainee.html',
 			controller: 'findTraineeCtrl'
 		})
+		.when("/trainee/show-update/:ID", {
+			templateUrl: '../templates/show-update-trainee.html',
+			controller: 'showUpdateTraineeCtrl'
+		})
+		.when("/measurements/show/:ID", {
+			templateUrl: '../templates/show-measurements.html',
+			controller: 'showMeasurementsCtrl'
+		})
 		.when("/logout", {
 			template: "",
 			controller: function() {

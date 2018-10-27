@@ -1,0 +1,213 @@
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+	<li class="breadcrumb-item">
+		<a href="">Προβολή</a>
+	</li>
+	<li class="breadcrumb-item active">Ασκούμενος</li>
+</ol>
+<div class="show-update-trainee">
+	<div class="row justify-content-center">
+		<div class="col">
+			<div class="card shadow-sm">
+				<div class="card-header">
+					<i class="fas fa-address-card mr-1"></i> Στοιχεία Ασκούμενου
+				</div>
+				<div class="card-body">
+					<div ng-if="mode === 'show'" class="row justify-content-center">
+						<div class="col-md-6">
+							<div class="row mb-2">
+								<div class="col">
+									<button ng-click="toggleEditMode()" class="btn btn-primary">Edit</button>
+								</div>
+							</div>
+							<div class="row mb-2">
+								<div class="col-md-5">
+									<div>Επίθετο:</div>
+								</div>
+								<div class="col-md-6">
+									<div>{{ trainee.surname }}</div>
+								</div>
+							</div>
+							<div class="row mb-2">
+								<div class="col-md-5">
+									<div>Όνομα:</div>
+								</div>
+								<div class="col-md-6">
+									<div>{{ trainee.name }}</div>
+								</div>
+							</div>
+							<div class="row mb-2">
+								<div class="col-md-5">
+									<div>Πατρώνυμο:</div>
+								</div>
+								<div class="col-md-6">
+									<div>{{ trainee.fathername }}</div>
+								</div>
+							</div>
+							<div class="row mb-2">
+								<div class="col-md-5">
+									<div>Α.Δ.Τ.:</div>
+								</div>
+								<div class="col-md-6">
+									<div>{{ trainee.adt }}</div>
+								</div>
+							</div>
+							<div class="row mb-2">
+								<div class="col-md-5">
+									<div>Ημερ. Γέννησης:</div>
+								</div>
+								<div class="col-md-6">
+									<div>{{ trainee.birth_date }}</div>
+								</div>
+							</div>
+							<div class="row mb-2">
+								<div class="col-md-5">
+									<div>Ημερ. Εγγραφής:</div>
+								</div>
+								<div class="col-md-6">
+									<div>{{ trainee.registration_date }}</div>
+								</div>
+							</div>
+							<div class="row mb-2">
+								<div class="col-md-5">
+									<div>Διεύθυνση Κατοικίας:</div>
+								</div>
+								<div class="col-md-6">
+									<div>{{ trainee.address }}</div>
+								</div>
+							</div>
+							<div class="row mb-2">
+								<div class="col-md-5">
+									<div>Απασχόληση:</div>
+								</div>
+								<div class="col-md-6">
+									<div>{{ trainee.occupation }}</div>
+								</div>
+							</div>
+							<div class="row mb-2">
+								<div class="col-md-5">
+									<div>Τηλέφωνο Επικοινωνίας:</div>
+								</div>
+								<div class="col-md-6">
+									<div>{{ trainee.contact_phone }}</div>
+								</div>
+							</div>
+							<div class="row mb-2">
+								<div class="col-md-5">
+									<div>Τηλέφωνο Ανάγκης:</div>
+								</div>
+								<div class="col-md-6">
+									<div>{{ trainee.emergency_phone }}</div>
+								</div>
+							</div>
+							<div class="row mb-2">
+								<div class="col-md-5">
+									<div>Ύψος:</div>
+								</div>
+								<div class="col-md-6">
+									<div>{{ trainee.height }}</div>
+								</div>
+							</div>
+							<div class="row mb-2">
+								<div class="col-md-5">
+									<div>Βάρος:</div>
+								</div>
+								<div class="col-md-6">
+									<div>{{ trainee.weight }}</div>
+								</div>
+							</div>
+							<div class="row mb-2">
+								<div class="col-md-5">
+									<div>Φύλο:</div>
+								</div>
+								<div class="col-md-6">
+									<div>{{ trainee.gender === 'male' ? 'Άνδρας':'Γυναίκα' }}</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<form ng-if="mode === 'edit'" class="label-09" name="traineeForm">
+						<div class="form-row justify-content-center">
+							<div class="form-group col-md-3">
+								<label>Επίθετο</label><label class="text-danger">*</label>
+								<input ng-model="trainee.surname" type="text" class="form-control form-control-sm" disabled placeholder="π.χ. Παπαδόπουλος" required>
+							</div>
+							<div class="form-group col-md-3">
+								<label>Όνομα</label><label class="text-danger">*</label>
+								<input ng-model="trainee.name" type="text" class="form-control form-control-sm" disabled placeholder="π.χ. Γιάννης" required>
+							</div>
+						</div>
+						<div class="form-row justify-content-center">
+							<div class="form-group col-md-3">
+								<label>Πατρώνυμο</label>
+								<input ng-model="trainee.fathername" type="text" class="form-control form-control-sm" disabled placeholder="π.χ. Νικόλαος">
+							</div>
+							<div class="form-group col-md-3">
+								<label>Α.Δ.Τ.</label>
+								<input ng-model="trainee.adt" type="text" class="form-control form-control-sm" disabled placeholder="π.χ. ΑΚ123456">
+							</div>
+						</div>
+						<div class="form-row justify-content-center">
+							<div class="form-group col-md-3">
+								<label>Ημερ. Γέννησης</label><label class="text-danger">*</label>
+								<input ng-model="trainee.birth_date" type="date" class="form-control form-control-sm" disabled required>
+							</div>
+							<div class="form-group col-md-3">
+								<label>Ημερ. Εγγραφής</label><label class="text-danger">*</label>
+								<input ng-model="trainee.registration_date" type="date" class="form-control form-control-sm" disabled required>
+							</div>
+						</div>
+						<div class="form-row justify-content-center">
+							<div class="form-group col-md-3">
+								<label>Διεύθυνση Κατοικίας</label>
+								<input ng-model="trainee.address" type="text" class="form-control form-control-sm" disabled placeholder="π.χ. Στρατηγού Μακρυγιάννη 10">
+							</div>
+							<div class="form-group col-md-3">
+								<label>Απασχόληση</label>
+								<input ng-model="trainee.occupation" type="text" class="form-control form-control-sm" disabled placeholder="π.χ. Καταστηματάρχης">
+							</div>
+						</div>
+						<div class="form-row justify-content-center">
+							<div class="form-group col-md-3">
+								<label>Τηλέφωνο Επικοινωνίας</label>
+								<input ng-model="trainee.contact_phone" type="tel" class="form-control form-control-sm" disabled placeholder="π.χ. 2104855666" pattern="[0-9]{10}">
+							</div>
+							<div class="form-group col-md-3">
+								<label>Τηλέφωνο Ανάγκης</label>
+								<input ng-model="trainee.emergency_phone" type="tel" class="form-control form-control-sm" disabled placeholder="π.χ. 2104855666" pattern="[0-9]{10}">
+							</div>
+						</div>
+						<div class="form-row justify-content-center">
+							<div class="form-group col-md-2">
+								<label>Ύψος</label>
+								<input ng-model="trainee.height" type="text" class="form-control form-control-sm" disabled placeholder="π.χ. 1.85">
+							</div>
+							<div class="form-group col-md-2">
+								<label>Βάρος</label>
+								<input ng-model="trainee.weight" type="text" class="form-control form-control-sm" disabled placeholder="π.χ. 82.5">
+							</div>
+							<div class="form-group col-md-2">
+								<div class="d-block">
+									<label>Φύλο</label><label class="text-danger">*</label>
+								</div>
+								<div class="form-check form-check-inline py-1">
+									<input ng-model="trainee.gender" value="male" class="form-check-input" type="radio" name="exampleRadios">
+									<label class="form-check-label">Άνδρας</label>
+								</div>
+								<div class="form-check form-check-inline py-1">
+									<input ng-model="trainee.gender" value="female" class="form-check-input" type="radio" name="exampleRadios">
+									<label class="form-check-label">Γυναίκα</label>
+								</div>
+							</div>
+						</div>
+						<div class="row mt-3">
+							<div class="col text-center">
+								<button ng-click="" ng-disabled="!traineeForm.$valid || !trainee.gender" type="submit" class="btn btn-primary">Ενημέρωση</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

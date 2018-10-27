@@ -38,6 +38,10 @@
 			});
 		};
 
+		if (localStorage.healthmastersJWT) {
+			window.location.href = "/";
+		}
+
 	});
 
 })();

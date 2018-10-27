@@ -16,6 +16,22 @@
 			});
 		};
 
+		generalServiceFactory.getMeasurementsOfTrainee = function(traineeId) {
+			var endpoint = '/measurement/get';
+			var url = $rootScope.healthmastersAPI + endpoint;
+
+			var data = {
+				trainee_id: traineeId
+			};
+
+			return $http({
+				method: "POST",
+				url: url,
+				headers: { 'Content-Type': 'application/json' },
+				data: data
+			});
+		};
+
 		generalServiceFactory.login = function(email, password) {
 			var endpoint = '/login';
 			var url = $rootScope.healthmastersAPI + endpoint;
