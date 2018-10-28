@@ -17,6 +17,19 @@
 			});
 		}
 
+		$scope.deleteMeasurement = function(id) {
+			var trainee_id = $scope.mergedMeasurements.trainee_id;
+			var measurement = $scope.mergedMeasurements.allMeasurements.find(function(measurement) {
+				return measurement._id === id;
+			});
+
+			generalService.deleteMeasurement(trainee_id, measurement._id, measurement.measurement_date).then(function(response) {
+				var index = $scope.mergedMeasurements.allMeasurements.indexOf(measurement);
+				$scope.mergedMeasurements.allMeasurements.splice(index, 1);		// Fix: not removed from $scope.measurementsByMonth
+				console.log(response.data);
+			});
+		}
+
 		/* ================= On start ================= */
 
 		$scope.getMeasurementsOfTrainee();

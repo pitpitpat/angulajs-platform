@@ -39,8 +39,8 @@
 			controller: 'findTraineeCtrl'
 		})
 		.when("/trainee/show-update/:ID", {
-			templateUrl: '../templates/show-update-trainee.html',
-			controller: 'showUpdateTraineeCtrl'
+			templateUrl: '../templates/update-trainee.html',
+			controller: 'updateTraineeCtrl'
 		})
 		.when("/measurements/show/:ID", {
 			templateUrl: '../templates/show-measurements.html',
@@ -71,6 +71,8 @@
 				var trainee = $rootScope.allTrainees[index];
 				$rootScope.allTrainees[index].fullname = trainee.name + ' ' + trainee.surname;
 			}
+			$rootScope.allTrainees = generalUtility.prepareListDates($rootScope.allTrainees, "birth_date");
+			$rootScope.allTrainees = generalUtility.prepareListDates($rootScope.allTrainees, "registration_date");
 			console.log($rootScope.allTrainees);
 		});
 

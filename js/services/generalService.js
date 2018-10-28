@@ -77,6 +77,35 @@
 			});
 		};
 
+		generalServiceFactory.updateTrainee = function(trainee) {
+			var endpoint = '/trainee/update';
+			var url = $rootScope.healthmastersAPI + endpoint;
+
+			var preparedTrainee = {
+				id                : trainee.id,
+				name              : trainee.name,
+				surname           : trainee.surname,
+				fathername        : trainee.fathername,
+				address           : trainee.address,
+				birth_date        : generalUtility.prepareDate(trainee.birth_date),
+				adt               : trainee.adt,
+				occupation        : trainee.occupation,
+				contact_phone     : trainee.contact_phone,
+				emergency_phone   : trainee.emergency_phone,
+				registration_date : generalUtility.prepareDate(trainee.registration_date),
+				height            : trainee.height,
+				weight            : trainee.weight,
+				gender            : trainee.gender
+			};
+
+			return $http({
+				method: "POST",
+				url: url,
+				headers: { 'Content-Type': 'application/json' },
+				data: preparedTrainee
+			});
+		};
+
 		generalServiceFactory.insertNewMeasurementMonths = function(trainee) {
 			var endpoint = '/measurement/months/insert';
 			var url = $rootScope.healthmastersAPI + endpoint;
@@ -113,6 +142,26 @@
 				url: url,
 				headers: { 'Content-Type': 'application/json' },
 				data: preparedNewMeasurement
+			});
+		};
+
+		generalServiceFactory.deleteMeasurement = function(trainee_id, measurement_id, measurement_date) {
+			var endpoint = '/measurement/delete';
+			var url = $rootScope.healthmastersAPI + endpoint;
+
+			var data = {
+				trainee_id       : trainee_id,
+				measurement_id   : measurement_id,
+				measurement_date : generalUtility.prepareDate(measurement_date)
+			};
+
+			console.log(data);
+
+			return $http({
+				method: "POST",
+				url: url,
+				headers: { 'Content-Type': 'application/json' },
+				data: data
 			});
 		};
 
