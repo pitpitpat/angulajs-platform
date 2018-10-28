@@ -19,24 +19,28 @@
 								<th colspan="2" class="border-top-0 border-bottom-0"><input st-search="" class="form-control" placeholder="Αναζήτηση..." type="text"/></th>
 							</tr>
 							<tr>
-								<th st-ratio="14" st-sort="measurement_date" st-sort-default="reverse">Ημερ/νία</th>
-								<th st-ratio="14" st-sort="weight">Βάρος</th>
-								<th st-ratio="14" st-sort="fat">Λίπος %</th>
-								<th st-ratio="16" st-sort="muscle">Μυική Μάζα %</th>
-								<th st-ratio="14" st-sort="bmi">BMI</th>
-								<th st-ratio="14" st-sort="rm">RM</th>
+								<th st-ratio="18" st-sort="measurement_date" st-sort-default="reverse">Ημερ/νία</th>
+								<th st-ratio="12" st-sort="weight">Βάρος</th>
+								<th st-ratio="12" st-sort="fat">Λίπος %</th>
+								<th st-ratio="13" st-sort="muscle">Μυικότητα %</th>
+								<th st-ratio="12" st-sort="bmi">BMI</th>
+								<th st-ratio="12" st-sort="rm">RM</th>
 								<th st-ratio="14" st-sort="visceral">Σπλαχνικό</th>
+								<th st-ratio="7"></th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr class="fs-09" ng-repeat="measurement in displayedMeasurements">
-								<td st-ratio="14">{{measurement.measurement_date | date : "dd-MM-yyyy"}}</td>
-								<td st-ratio="14">{{measurement.weight}}</td>
-								<td st-ratio="14">{{measurement.fat}}</td>
-								<td st-ratio="16">{{measurement.muscle}}</td>
-								<td st-ratio="14">{{measurement.bmi}}</td>
-								<td st-ratio="14">{{measurement.rm}}</td>
+								<td st-ratio="18">{{measurement.measurement_date | date : "dd-MM-yyyy"}}</td>
+								<td st-ratio="12">{{measurement.weight}}</td>
+								<td st-ratio="12">{{measurement.fat}}</td>
+								<td st-ratio="13">{{measurement.muscle}}</td>
+								<td st-ratio="12">{{measurement.bmi}}</td>
+								<td st-ratio="12">{{measurement.rm}}</td>
 								<td st-ratio="14">{{measurement.visceral}}</td>
+								<td st-ratio="7" class="text-center">
+									<button type="button" ng-click="deleteMeasurement(measurement._id)" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button>
+								</td>
 							</tr>
 						</tbody>
 						<tfoot>

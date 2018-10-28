@@ -24,8 +24,8 @@
 			return null;
 		};
 
-		generalUtilityFactory.prepareNewTrainee = function(trainee, id){
-			var preparedNewTrainee = {
+		generalUtilityFactory.prepareTrainee = function(trainee, id){
+			var preparedTrainee = {
 				id: id,
 				name: trainee.name,
 				surname: trainee.surname,
@@ -41,35 +41,47 @@
 				gender: trainee.gender
 			};
 
-			return preparedNewTrainee;
+			return preparedTrainee;
 		};
 
-		generalUtilityFactory.prepareMeasurementsList = function(measurementsList){
-			var preparedMeasurementsList = angular.copy(measurementsList);
-
-			for (index in preparedMeasurementsList) {
-				var measurement = preparedMeasurementsList[index];
-				measurement.measurement_date = new Date(measurement.measurement_date);
+		generalUtilityFactory.updateListItem = function(allItems, updatedItem, id){
+			for (index in allItems) {
+				var item = allItems[index];
+				if (item.id === id) {
+					item = updatedItem;
+					break;
+				}
 			}
 
-			return preparedMeasurementsList;
+			return allItems;
+		};
+
+		generalUtilityFactory.prepareListDates = function(list, predicate){
+			var preparedList = angular.copy(list);
+
+			for (index in preparedList) {
+				var item = preparedList[index];
+				item[predicate] = new Date(item[predicate]);
+			}
+
+			return preparedList;
 		};
 
 		generalUtilityFactory.prepareMeasurementsByMonth = function(measurementsByMonth){
 			var preparedMeasurements = angular.copy(measurementsByMonth);
 
-			preparedMeasurements.january = generalUtilityFactory.prepareMeasurementsList(preparedMeasurements.january);
-			preparedMeasurements.february = generalUtilityFactory.prepareMeasurementsList(preparedMeasurements.february);
-			preparedMeasurements.march = generalUtilityFactory.prepareMeasurementsList(preparedMeasurements.march);
-			preparedMeasurements.april = generalUtilityFactory.prepareMeasurementsList(preparedMeasurements.april);
-			preparedMeasurements.may = generalUtilityFactory.prepareMeasurementsList(preparedMeasurements.may);
-			preparedMeasurements.june = generalUtilityFactory.prepareMeasurementsList(preparedMeasurements.june);
-			preparedMeasurements.july = generalUtilityFactory.prepareMeasurementsList(preparedMeasurements.july);
-			preparedMeasurements.august = generalUtilityFactory.prepareMeasurementsList(preparedMeasurements.august);
-			preparedMeasurements.september = generalUtilityFactory.prepareMeasurementsList(preparedMeasurements.september);
-			preparedMeasurements.october = generalUtilityFactory.prepareMeasurementsList(preparedMeasurements.october);
-			preparedMeasurements.november = generalUtilityFactory.prepareMeasurementsList(preparedMeasurements.november);
-			preparedMeasurements.december = generalUtilityFactory.prepareMeasurementsList(preparedMeasurements.december);
+			preparedMeasurements.january = generalUtilityFactory.prepareListDates(preparedMeasurements.january, "measurement_date");
+			preparedMeasurements.february = generalUtilityFactory.prepareListDates(preparedMeasurements.february, "measurement_date");
+			preparedMeasurements.march = generalUtilityFactory.prepareListDates(preparedMeasurements.march, "measurement_date");
+			preparedMeasurements.april = generalUtilityFactory.prepareListDates(preparedMeasurements.april, "measurement_date");
+			preparedMeasurements.may = generalUtilityFactory.prepareListDates(preparedMeasurements.may), "measurement_date";
+			preparedMeasurements.june = generalUtilityFactory.prepareListDates(preparedMeasurements.june, "measurement_date");
+			preparedMeasurements.july = generalUtilityFactory.prepareListDates(preparedMeasurements.july, "measurement_date");
+			preparedMeasurements.august = generalUtilityFactory.prepareListDates(preparedMeasurements.august, "measurement_date");
+			preparedMeasurements.september = generalUtilityFactory.prepareListDates(preparedMeasurements.september, "measurement_date");
+			preparedMeasurements.october = generalUtilityFactory.prepareListDates(preparedMeasurements.october, "measurement_date");
+			preparedMeasurements.november = generalUtilityFactory.prepareListDates(preparedMeasurements.november, "measurement_date");
+			preparedMeasurements.december = generalUtilityFactory.prepareListDates(preparedMeasurements.december, "measurement_date");
 
 			return preparedMeasurements;
 		};
