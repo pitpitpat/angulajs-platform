@@ -1,0 +1,100 @@
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+	<li class="breadcrumb-item">
+		<a href="">Προσθήκη</a>
+	</li>
+	<li class="breadcrumb-item active">Ασκούμενος</li>
+</ol>
+<div class="add-trainee">
+	<div class="row justify-content-center">
+		<div class="col">
+			<div class="card shadow-sm">
+				<div class="card-header">
+					<i class="fas fa-user mr-1"></i> Στοιχεία Ασκούμενου
+				</div>
+				<div class="card-body">
+					<form class="label-09" name="newTraineeForm">
+						<div class="form-row justify-content-center">
+							<div class="form-group col-md-3">
+								<label>Επίθετο</label><label class="text-danger">*</label>
+								<input ng-model="newTrainee.surname" type="text" class="form-control form-control-sm" placeholder="π.χ. Παπαδόπουλος" required>
+							</div>
+							<div class="form-group col-md-3">
+								<label>Όνομα</label><label class="text-danger">*</label>
+								<input ng-model="newTrainee.name" type="text" class="form-control form-control-sm" placeholder="π.χ. Γιάννης" required>
+							</div>
+						</div>
+						<div class="form-row justify-content-center">
+							<div class="form-group col-md-3">
+								<label>Πατρώνυμο</label>
+								<input ng-model="newTrainee.fathername" type="text" class="form-control form-control-sm" placeholder="π.χ. Νικόλαος">
+							</div>
+							<div class="form-group col-md-3">
+								<label>Α.Δ.Τ.</label>
+								<input ng-model="newTrainee.adt" type="text" class="form-control form-control-sm" placeholder="π.χ. ΑΚ123456">
+							</div>
+						</div>
+						<div class="form-row justify-content-center">
+							<div class="form-group col-md-3">
+								<label>Ημερ. Γέννησης</label><label class="text-danger">*</label>
+								<input ng-model="newTrainee.birth_date" type="date" class="form-control form-control-sm" required>
+							</div>
+							<div class="form-group col-md-3">
+								<label>Ημερ. Εγγραφής</label><label class="text-danger">*</label>
+								<input ng-model="newTrainee.registration_date" type="date" class="form-control form-control-sm" required>
+							</div>
+						</div>
+						<div class="form-row justify-content-center">
+							<div class="form-group col-md-3">
+								<label>Διεύθυνση Κατοικίας</label>
+								<input ng-model="newTrainee.address" type="text" class="form-control form-control-sm" placeholder="π.χ. Στρατηγού Μακρυγιάννη 10">
+							</div>
+							<div class="form-group col-md-3">
+								<label>Απασχόληση</label>
+								<input ng-model="newTrainee.occupation" type="text" class="form-control form-control-sm" placeholder="π.χ. Καταστηματάρχης">
+							</div>
+						</div>
+						<div class="form-row justify-content-center">
+							<div class="form-group col-md-3">
+								<label>Τηλέφωνο Επικοινωνίας</label>
+								<input ng-model="newTrainee.contact_phone" type="tel" class="form-control form-control-sm" placeholder="π.χ. 2104855666" pattern="[0-9]{10}">
+							</div>
+							<div class="form-group col-md-3">
+								<label>Τηλέφωνο Ανάγκης</label>
+								<input ng-model="newTrainee.emergency_phone" type="tel" class="form-control form-control-sm" placeholder="π.χ. 2104855666" pattern="[0-9]{10}">
+							</div>
+						</div>
+						<div class="form-row justify-content-center">
+							<div class="form-group col-md-2">
+								<label>Ύψος</label>
+								<input ng-model="newTrainee.height" type="text" class="form-control form-control-sm" placeholder="π.χ. 1.85">
+							</div>
+							<div class="form-group col-md-2">
+								<label>Βάρος</label>
+								<input ng-model="newTrainee.weight" type="text" class="form-control form-control-sm" placeholder="π.χ. 82.5">
+							</div>
+							<div class="form-group col-md-2">
+								<div class="d-block">
+									<label>Φύλο</label><label class="text-danger">*</label>
+								</div>
+								<div class="form-check form-check-inline py-1">
+									<input ng-model="newTrainee.gender" value="male" class="form-check-input" type="radio" name="exampleRadios">
+									<label class="form-check-label">Άνδρας</label>
+								</div>
+								<div class="form-check form-check-inline py-1">
+									<input ng-model="newTrainee.gender" value="female" class="form-check-input" type="radio" name="exampleRadios">
+									<label class="form-check-label">Γυναίκα</label>
+								</div>
+							</div>
+						</div>
+						<div class="row mt-3">
+							<div class="col text-center">
+								<button ng-click="insertNewTrainee()" ng-disabled="!newTraineeForm.$valid || !newTrainee.gender" type="submit" class="btn btn-primary">Προσθήκη</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

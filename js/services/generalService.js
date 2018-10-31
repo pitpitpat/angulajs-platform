@@ -1,11 +1,11 @@
 (function() {
 
 	angular.module('healthmastersApp')
-	.factory('generalService', function($rootScope, $http) {
+	.factory('generalService', function($rootScope, $http, generalUtility) {
 
 		var generalServiceFactory = {};
 
-		generalServiceFactory.getUserList = function() {
+		generalServiceFactory.getAllTrainees = function() {
 			var endpoint = '/trainee/all/get';
 			var url = $rootScope.healthmastersAPI + endpoint;
 
@@ -16,15 +16,57 @@
 			});
 		};
 
+		generalServiceFactory.getMeasurementsOfTrainee = function(traineeId) {
+			var endpoint = '/measurement/get';
+			var url = $rootScope.healthmastersAPI + endpoint;
+
+			var data = {
+				trainee_id: traineeId
+			};
+
+			return $http({
+				method: "POST",
+				url: url,
+				headers: { 'Content-Type': 'application/json' },
+				data: data
+			});
+		};
+
+		generalServiceFactory.login = function(email, password) {
+			var endpoint = '/login';
+			var url = $rootScope.healthmastersAPI + endpoint;
+
+			var credentials = {
+				email: email,
+				password: password
+			};
+
+			return $http({
+				method: "POST",
+				url: url,
+				headers: { 'Content-Type': 'application/json' },
+				data: credentials
+			});
+		};
+
 		generalServiceFactory.insertNewTrainee = function(newTrainee) {
-			var endpoint = '/trainee/new/insert';
+			var endpoint = '/trainee/insert';
 			var url = $rootScope.healthmastersAPI + endpoint;
 
 			var preparedNewTrainee = {
-				name: newTrainee.name,
-				surname: newTrainee.surname,
-				age: newTrainee.age,
-				gender: newTrainee.gender
+				name              : newTrainee.name,
+				surname           : newTrainee.surname,
+				fathername        : newTrainee.fathername,
+				address           : newTrainee.address,
+				birth_date        : generalUtility.prepareDate(newTrainee.birth_date),
+				adt               : newTrainee.adt,
+				occupation        : newTrainee.occupation,
+				contact_phone     : newTrainee.contact_phone,
+				emergency_phone   : newTrainee.emergency_phone,
+				registration_date : generalUtility.prepareDate(newTrainee.registration_date),
+				height            : newTrainee.height,
+				weight            : newTrainee.weight,
+				gender            : newTrainee.gender
 			};
 
 			return $http({
@@ -32,6 +74,94 @@
 				url: url,
 				headers: { 'Content-Type': 'application/json' },
 				data: preparedNewTrainee
+			});
+		};
+
+		generalServiceFactory.updateTrainee = function(trainee) {
+			var endpoint = '/trainee/update';
+			var url = $rootScope.healthmastersAPI + endpoint;
+
+			var preparedTrainee = {
+				id                : trainee.id,
+				name              : trainee.name,
+				surname           : trainee.surname,
+				fathername        : trainee.fathername,
+				address           : trainee.address,
+				birth_date        : generalUtility.prepareDate(trainee.birth_date),
+				adt               : trainee.adt,
+				occupation        : trainee.occupation,
+				contact_phone     : trainee.contact_phone,
+				emergency_phone   : trainee.emergency_phone,
+				registration_date : generalUtility.prepareDate(trainee.registration_date),
+				height            : trainee.height,
+				weight            : trainee.weight,
+				gender            : trainee.gender
+			};
+
+			return $http({
+				method: "POST",
+				url: url,
+				headers: { 'Content-Type': 'application/json' },
+				data: preparedTrainee
+			});
+		};
+
+		generalServiceFactory.insertNewMeasurementMonths = function(trainee) {
+			var endpoint = '/measurement/months/insert';
+			var url = $rootScope.healthmastersAPI + endpoint;
+
+			var preparedNewMeasurementMonths = {
+				trainee_id: trainee.id
+			};
+
+			return $http({
+				method: "POST",
+				url: url,
+				headers: { 'Content-Type': 'application/json' },
+				data: preparedNewMeasurementMonths
+			});
+		};
+
+		generalServiceFactory.insertNewMeasurement = function(newMeasurement) {
+			var endpoint = '/measurement/insert';
+			var url = $rootScope.healthmastersAPI + endpoint;
+
+			var preparedNewMeasurement = {
+				trainee_id       : newMeasurement.trainee_id,
+				measurement_date : generalUtility.prepareDate(newMeasurement.measurement_date),
+				weight           : newMeasurement.weight,
+				fat              : newMeasurement.fat,
+				muscle           : newMeasurement.muscle,
+				bmi              : newMeasurement.bmi,
+				rm               : newMeasurement.rm,
+				visceral         : newMeasurement.visceral
+			};
+
+			return $http({
+				method: "POST",
+				url: url,
+				headers: { 'Content-Type': 'application/json' },
+				data: preparedNewMeasurement
+			});
+		};
+
+		generalServiceFactory.deleteMeasurement = function(trainee_id, measurement_id, measurement_date) {
+			var endpoint = '/measurement/delete';
+			var url = $rootScope.healthmastersAPI + endpoint;
+
+			var data = {
+				trainee_id       : trainee_id,
+				measurement_id   : measurement_id,
+				measurement_date : generalUtility.prepareDate(measurement_date)
+			};
+
+			console.log(data);
+
+			return $http({
+				method: "POST",
+				url: url,
+				headers: { 'Content-Type': 'application/json' },
+				data: data
 			});
 		};
 

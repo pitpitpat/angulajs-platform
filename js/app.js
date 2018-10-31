@@ -2,34 +2,79 @@
 
 	angular.module("healthmastersApp", [
 		"ngRoute",
-		"angular-loading-bar"
+		"angular-jwt",
+		"angular-loading-bar",
+		"smart-table"
 	])
-	.config(function($routeProvider, cfpLoadingBarProvider) {
+	.config(function($httpProvider, $routeProvider, cfpLoadingBarProvider, jwtOptionsProvider) {
 
 		/* ================= Loading Spinner ================= */
 		cfpLoadingBarProvider.includeSpinner = false;
 
+		/* ================= JWT Authendication ================= */
+		jwtOptionsProvider.config({
+			tokenGetter: function(options) {
+                token = localStorage.healthmastersJWT;
+				if (!token) {
+					window.location.href = "/login";
+				}
+				return token;
+			},
+			whiteListedDomains: ["api.ppserver.me", "localhost"]
+		});
+		$httpProvider.interceptors.push("jwtInterceptor");
+
 		/* ================= Routing ================= */
 		$routeProvider
-		.when("/registration", {
-			templateUrl: '../templates/registration.html',
-			controller: 'registrationCtrl'
+		.when("/trainee/add", {
+			templateUrl: '../templates/add-trainee.html',
+			controller: 'addTraineeCtrl'
 		})
-		.when("/measurements", {
-			templateUrl: '../templates/measurements.html',
-			controller: 'measurementsCtrl'
+		.when("/measurement/add", {
+			templateUrl: '../templates/add-measurement.html',
+			controller: 'addMeasurementsCtrl'
+		})
+		.when("/trainee/find", {
+			templateUrl: '../templates/find-trainee.html',
+			controller: 'findTraineeCtrl'
+		})
+		.when("/trainee/show-update/:ID", {
+			templateUrl: '../templates/update-trainee.html',
+			controller: 'updateTraineeCtrl'
+		})
+		.when("/measurements/show/:ID", {
+			templateUrl: '../templates/show-measurements.html',
+			controller: 'showMeasurementsCtrl'
+		})
+		.when("/logout", {
+			template: "",
+			controller: function() {
+				delete localStorage.healthmastersJWT;
+				window.location.href = "/login";
+  			}
 		})
 		.when("/", {
-			redirectTo: '/registration'
+			redirectTo: '/trainee/add'
 		})
 		.otherwise({
-			redirectTo: '/registration'
+			redirectTo: '/trainee/add'
 		});
 
 	})
-	.run(function ($rootScope, generalUtility) {
+	.run(function ($rootScope, generalUtility, generalService) {
 
 		generalUtility.init_app();
+
+		generalService.getAllTrainees().then(function(response) {
+			$rootScope.allTrainees = response.data.all_trainees;
+			for (index in $rootScope.allTrainees) {
+				var trainee = $rootScope.allTrainees[index];
+				$rootScope.allTrainees[index].fullname = trainee.name + ' ' + trainee.surname;
+			}
+			$rootScope.allTrainees = generalUtility.prepareListDates($rootScope.allTrainees, "birth_date");
+			$rootScope.allTrainees = generalUtility.prepareListDates($rootScope.allTrainees, "registration_date");
+			console.log($rootScope.allTrainees);
+		});
 
 	});
 
