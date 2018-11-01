@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<title>Manage | Healthmasters</title>
+		<title>Manage | The Healthmasters</title>
 		<link rel="icon" type="image/x-icon" href="img/logo-healthmasters.png"/>
 
 		<!-- CSS -->
@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="bower_components/bootstrap-4.1.3/css/bootstrap.min.css">
 		<link rel="stylesheet" href="bower_components/fontawesome-5.3.1/css/all.css">
 		<link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css" type="text/css" media="all">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.13/css/mdb.min.css">
 		<link rel="stylesheet" href="css/app.css">
 		<link rel="stylesheet" href="css/sb-admin.css">
 	</head>
@@ -24,8 +25,8 @@
 				<a class="navbar-brand mr-1" href="index.html">
 					<img src="img/logo-healthmasters.png" alt="navbar logo" class="navbar-logo">
 				</a>
-				<button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
-					<i class="fas fa-bars"></i>
+				<button class="btn btn-link btn-sm order-1 order-sm-0" id="sidebarToggle" href="#">
+					<i class="fas fa-bars text-white"></i>
 				</button>
 				<!-- Navbar Search -->
 				<form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -54,31 +55,31 @@
 			<div id="wrapper">
 
 				<!-- Sidebar -->
-				<ul class="sidebar navbar-nav">
+				<ul class="sidebar navbar-nav" id="sidebarLinks">
 					<li class="nav-item" ng-class="{'active': currentPage === 'overview'}">
 						<a class="nav-link" href="">
 							<i class="fas fa-fw fa-users"></i>
 							<span>Συνολική Εικόνα</span>
 						</a>
 					</li>
-					<li class="nav-item" ng-class="{'active': currentPage === 'add'}" id="addAccordion">
+					<li class="nav-item" ng-class="{'active': currentPage === 'add'}">
 						<a class="nav-link" id="addHeader" href="" role="button" data-toggle="collapse" data-target="#addCollapse" aria-expanded="false" aria-controls="addCollapse">
 							<i class="fas fa-fw fa-plus"></i>
 							<span>Προσθήκη</span>
 						</a>
-						<div id="addCollapse" class="collapse bg-white rounded mx-2" aria-labelledby="addHeader" data-parent="#addAccordion">
-							<a class="dropdown-item py-2 fs-09 rounded" href="#!/trainee/add"><i class="fas fa-user text-gray-dark mr-1"></i> Ασκούμενου</a>
-							<a class="dropdown-item py-2 fs-09 rounded" href="#!/measurement/add"><i class="fas fa-weight text-gray-dark mr-1"></i> Μέτρησης</a>
+						<div id="addCollapse" class="collapse bg-white" aria-labelledby="addHeader" data-parent="#sidebarLinks">
+							<a class="dropdown-item p-3 fs-09 d-block" href="#!/trainee/add"><i class="fas fa-user mr-1"></i> Ασκούμενου</a>
+							<a class="dropdown-item p-3 fs-09 d-block" href="#!/measurement/add"><i class="fas fa-weight mr-1"></i> Μέτρησης</a>
 						</div>
 					</li>
-					<li class="nav-item" ng-class="{'active': currentPage === 'find'}" id="findAccordion">
+					<li class="nav-item" ng-class="{'active': currentPage === 'find'}">
 						<a class="nav-link" id="findHeader" href="" role="button" data-toggle="collapse" data-target="#findCollapse" aria-expanded="false" aria-controls="findCollapse">
 							<i class="fas fa-fw fa-search"></i>
 							<span>Εύρεση</span>
 						</a>
-						<div id="findCollapse" class="collapse bg-white rounded mx-2" aria-labelledby="findHeader" data-parent="#findAccordion">
-							<a class="dropdown-item py-2 fs-09 rounded" href="#!/trainee/find"><i class="fas fa-user text-gray-dark mr-1"></i> Ασκούμενου</a>
-						<!-- <a class="dropdown-item py-2 fs-09 rounded" href="#!/measurement/find"><i class="fas fa-weight text-gray-dark mr-1"></i> Μέτρησης</a> -->
+						<div id="findCollapse" class="collapse bg-white" aria-labelledby="findHeader" data-parent="#sidebarLinks">
+							<a class="dropdown-item p-3 fs-09 d-block" href="#!/trainee/find"><i class="fas fa-user mr-1"></i> Ασκούμενου</a>
+						<!-- <a class="dropdown-item py-2 fs-09" href="#!/measurement/find"><i class="fas fa-weight mr-1"></i> Μέτρησης</a> -->
 						</div>
 					</li>
 				</ul>
@@ -122,8 +123,8 @@
 						</div>
 						<div class="modal-body">Επίλεξε "Αποσύνδεση" αν είσαι έτοιμος να αποχωρήσεις απο αυτή τη σελίδα.</div>
 						<div class="modal-footer">
-							<button class="btn btn-secondary" type="button" data-dismiss="modal">Ακύρωση</button>
-							<a class="btn btn-primary" href="#!/logout">Αποσύνδεση</a>
+							<button class="btn btn-light" type="button" data-dismiss="modal">Ακύρωση</button>
+							<a class="btn btn-danger" href="#!/logout">Αποσύνδεση</a>
 						</div>
 					</div>
 				</div>
@@ -133,7 +134,9 @@
 
 		<!-- JavaScript Modules -->
 		<script src="bower_components/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
 		<script src="bower_components/bootstrap-4.1.3/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.13/js/mdb.min.js"></script>
 		<script src="bower_components/angular/angular.min.js"></script>
 		<script src="bower_components/angular-route-1.6.9/angular-route-1.6.9.min.js"></script>
 		<script src="bower_components/angular-jwt/dist/angular-jwt.min.js"></script>
