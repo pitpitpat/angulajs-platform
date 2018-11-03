@@ -1,4 +1,4 @@
-<nav ng-if="numPages && pages.length >= 2" class="dataTables_paginate paging_simple_numbers">
+<nav ng-if="numPages && pages.length >= 2">
     <ul class="pagination justify-content-center mt-3">
         <li class="page-item"><a class="page-link" href="" ng-click="selectPage(1)">First</a></li>
         <li ng-repeat="page in pages" class="page-item" ng-class="{'active bg-primary': page==currentPage}"><a class="page-link" href="" ng-click="selectPage(page)">{{page}}</a></li>

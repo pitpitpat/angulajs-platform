@@ -8,7 +8,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
-    background-color: #F7F7F7;
+    background-color: #F7FFF7;
 }
 
 ::placeholder {
@@ -51,6 +51,10 @@ body {
 
 .text-pink {
     color: #FF69B4;
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }
 
 /* -------------------- LOGIN --------------------- */

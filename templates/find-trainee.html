@@ -1,49 +1,56 @@
 <!-- Breadcrumbs-->
 <ol class="breadcrumb">
-    <li class="breadcrumb-item">
-        <a href="">Εύρεση</a>
-    </li>
-    <li class="breadcrumb-item active">Ασκούμενος</li>
+	<li class="breadcrumb-item">
+		<a href="">Εύρεση</a>
+	</li>
+	<li class="breadcrumb-item active">Ασκούμενος</li>
 </ol>
 <div class="row">
-    <div class="col">
-        <table st-table="displayedTrainees" st-safe-src="allTrainees" class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th colspan="2" class="border-top-0 border-bottom-0"><input st-search="" class="form-control" placeholder="Αναζήτηση..." type="text" /></th>
-                </tr>
-                <tr>
-                    <th st-ratio="20" st-sort="name">Όνομα</th>
-                    <th st-ratio="26" st-sort="surname">Επίθετο</th>
-                    <th st-ratio="10" st-sort="gender">Φύλο</th>
-                    <th st-ratio="32" st-sort="occupation">Επάγγελμα</th>
-                    <th st-ratio="6">Στοιχεία</th>
-                    <th st-ratio="6"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="trainee in displayedTrainees" ng-click="goToTraineeInfo(trainee.id)">
-                    <td st-ratio="20">{{trainee.name}}</td>
-                    <td st-ratio="26">{{trainee.surname}}</td>
-                    <td st-ratio="10">
-                        <i class="fas fa-2x ml-2" ng-class="{'fa-male text-primary': trainee.gender === 'male', 'fa-female text-pink': trainee.gender === 'female'}"></i>
-                    </td>
-                    <td st-ratio="32">{{trainee.occupation ? trainee.occupation:'-'}}</td>
-                    <td st-ratio="6" class="text-center">
-                        <a role="button" ng-href="#!/trainee/show-update/{{trainee.id}}" class="btn btn-sm btn-info"><i class="far fa-address-card"></i></a>
-                    </td>
-                    <td st-ratio="6" class="text-center">
-                        <button type="button" ng-click="$event.stopPropagation()" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button>
-                    </td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="7" class="text-center">
-                        <div st-pagination st-items-by-page="10" st-displayed-pages="10" st-template="templates/custom-templates/pagination.html"></div>
-                    </td>
-                </tr>
-            </tfoot>
-        </table>
-    </div>
+	<div class="col">
+		<div class="table-responsive">
+			<table st-table="displayedTrainees" st-safe-src="allTrainees" class="table">
+				<thead>
+					<tr>
+						<th colspan="2" class="border-0">
+							<form class="form-inline">
+								<i class="fa fa-search" aria-hidden="true"></i>
+								<input st-search="" class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search">
+							</form>
+						</th>
+					</tr>
+					<tr class="blue-gradient text-white shadow-sm">
+						<th st-ratio="20" st-sort="name">Όνομα</th>
+						<th st-ratio="20" st-sort="surname">Επίθετο</th>
+						<th st-ratio="10" st-sort="gender">Φύλο</th>
+						<th st-ratio="30" st-sort="occupation">Επάγγελμα</th>
+						<th st-ratio="10" class="text-center">Στοιχεία</th>
+						<th st-ratio="10"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="trainee in displayedTrainees" ng-click="goToTraineeMeasurements(trainee.id)" class="hover-dark">
+						<td st-ratio="20">{{trainee.name}}</td>
+						<td st-ratio="30">{{trainee.surname}}</td>
+						<td st-ratio="10">
+							<i class="fas fa-2x ml-2" ng-class="{'fa-male text-primary': trainee.gender === 'male', 'fa-female text-pink': trainee.gender === 'female'}"></i>
+						</td>
+						<td st-ratio="20">{{trainee.occupation ? trainee.occupation:'---'}}</td>
+						<td st-ratio="10" class="text-center">
+							<button ng-click="goToTraineeInfo(trainee.id);$event.stopPropagation();" type="button" class="btn btn-sm btn-light" data-toggle="tooltip" title="Στοιχεία"><i class="far fa-address-card"></i></button>
+						</td>
+						<td st-ratio="10" class="text-center">
+							<button ng-click="$event.stopPropagation()" type="button" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Διαγραφή"><i class="far fa-trash-alt"></i></button>
+						</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="7" class="text-center">
+							<div st-pagination st-items-by-page="10" st-displayed-pages="10" st-template="templates/custom-templates/pagination.html"></div>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+	</div>
 </div>
