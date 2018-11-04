@@ -68,10 +68,10 @@
   			}
 		})
 		.when("/", {
-			redirectTo: '/trainee/add'
+			redirectTo: '/trainee/find'
 		})
 		.otherwise({
-			redirectTo: '/trainee/add'
+			redirectTo: '/trainee/find'
 		});
 
 	})
