@@ -1,7 +1,7 @@
-<nav ng-if="numPages && pages.length >= 2" class="ng-scope">
-	<ul class="pagination justify-content-center mt-3">
-		<li class="page-item"><a class="page-link" href="" ng-click="selectPage(1)">First</a></li>
-		<li ng-repeat="page in pages" class="page-item" ng-class="{active: page==currentPage}"><a class="page-link" href="javascript: void(0);" ng-click="selectPage(page)">{{page}}</a></li>
-		<li class="page-item"><a class="page-link" href="" ng-click="selectPage(numPages)">Last</a></li>
-	</ul>
+<nav ng-if="numPages && pages.length >= 2">
+    <ul class="pagination justify-content-center mt-3">
+        <li class="page-item"><a class="page-link" href="" ng-click="selectPage(1)">First</a></li>
+        <li ng-repeat="page in pages" class="page-item" ng-class="{'active bg-primary': page==currentPage}"><a class="page-link" href="" ng-click="selectPage(page)">{{page}}</a></li>
+        <li class="page-item"><a class="page-link" href="" ng-click="selectPage(numPages)">Last</a></li>
+    </ul>
 </nav>

@@ -1,56 +1,61 @@
 <!-- Breadcrumbs-->
 <ol class="breadcrumb">
 	<li class="breadcrumb-item">
-		<a href="">Προβολή</a>
+		<a href="#!/trainee/find">Ασκούμενοι</a>
 	</li>
-	<li class="breadcrumb-item active">Μέτρηση</li>
+	<li class="breadcrumb-item active">Μετρήσεις</li>
 </ol>
 <div class="show-measurement">
 	<div class="row justify-content-center">
 		<div class="col">
-			<div class="card shadow-sm">
-				<div class="card-header">
+			<div class="card">
+				<div class="card-header blue-gradient text-white">
 					<i class="fas fa-table mr-1"></i> Πίνακας Μετρήσεων
 				</div>
 				<div class="card-body">
-					<table st-table="displayedMeasurements" st-safe-src="mergedMeasurements.allMeasurements" class="table table-striped table-hover">
-						<thead>
-							<tr>
-								<th colspan="2" class="border-top-0 border-bottom-0"><input st-search="" class="form-control" placeholder="Αναζήτηση..." type="text"/></th>
-							</tr>
-							<tr>
-								<th st-ratio="18" st-sort="measurement_date" st-sort-default="reverse">Ημερ/νία</th>
-								<th st-ratio="12" st-sort="weight">Βάρος</th>
-								<th st-ratio="12" st-sort="fat">Λίπος %</th>
-								<th st-ratio="13" st-sort="muscle">Μυικότητα %</th>
-								<th st-ratio="12" st-sort="bmi">BMI</th>
-								<th st-ratio="12" st-sort="rm">RM</th>
-								<th st-ratio="14" st-sort="visceral">Σπλαχνικό</th>
-								<th st-ratio="7"></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr class="fs-09" ng-repeat="measurement in displayedMeasurements">
-								<td st-ratio="18">{{measurement.measurement_date | date : "dd-MM-yyyy"}}</td>
-								<td st-ratio="12">{{measurement.weight}}</td>
-								<td st-ratio="12">{{measurement.fat}}</td>
-								<td st-ratio="13">{{measurement.muscle}}</td>
-								<td st-ratio="12">{{measurement.bmi}}</td>
-								<td st-ratio="12">{{measurement.rm}}</td>
-								<td st-ratio="14">{{measurement.visceral}}</td>
-								<td st-ratio="7" class="text-center">
-									<button type="button" ng-click="deleteMeasurement(measurement._id)" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button>
-								</td>
-							</tr>
-						</tbody>
-						<tfoot>
-							<tr>
-								<td colspan="1" class="text-center">
-									<div st-pagination st-items-by-page="10" st-displayed-pages="10" st-template="templates/custom-templates/pagination.html"></div>
-								</td>
-							</tr>
-						</tfoot>
-					</table>
+					<div class="table-responsive">
+						<table st-table="displayedMeasurements" st-safe-src="mergedMeasurements.allMeasurements" class="table table-sm table-striped">
+							<thead>
+								<tr>
+									<th colspan="2" class="border-top-0 border-bottom-0"><input st-search="" class="form-control" type="text" placeholder="Αναζήτηση..."/></th>
+								</tr>
+								<tr>
+									<th st-ratio="18" st-sort="measurement_date" st-sort-default="reverse">Ημερ/νία</th>
+									<th st-ratio="12" st-sort="weight">Βάρος</th>
+									<th st-ratio="12" st-sort="fat">Λίπος</th>
+									<th st-ratio="13" st-sort="muscle">Μυικότητα</th>
+									<th st-ratio="12" st-sort="bmi">BMI</th>
+									<th st-ratio="12" st-sort="rm">RM</th>
+									<th st-ratio="14" st-sort="visceral">Σπλαχνικό</th>
+									<th st-ratio="7"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-if="mergedMeasurements.allMeasurements.length === 0" class="fs-09 text-center">
+									<td colspan="8">Δεν υπάρχουν μετρήσεις ακόμα.</td>
+								</tr>
+								<tr class="fs-09" ng-repeat="measurement in displayedMeasurements">
+									<td st-ratio="18">{{measurement.measurement_date | date : "dd-MM-yyyy"}}</td>
+									<td st-ratio="12">{{measurement.weight ? measurement.weight : '---'}}</td>
+									<td st-ratio="12">{{measurement.fat ? (measurement.fat + ' %') : '---'}}</td>
+									<td st-ratio="13">{{measurement.muscle ? (measurement.muscle + ' %') : '---'}}</td>
+									<td st-ratio="12">{{measurement.bmi ? measurement.bmi : '---'}}</td>
+									<td st-ratio="12">{{measurement.rm ? measurement.rm : '---'}}</td>
+									<td st-ratio="14">{{measurement.visceral ? measurement.visceral : '---'}}</td>
+									<td st-ratio="7" class="text-center">
+										<button type="button" ng-click="deleteMeasurement(measurement._id)" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Διαγραφή"><i class="far fa-trash-alt"></i></button>
+									</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td colspan="8" class="text-center">
+										<div st-pagination st-items-by-page="10" st-displayed-pages="10" st-template="templates/custom-templates/pagination.html"></div>
+									</td>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>

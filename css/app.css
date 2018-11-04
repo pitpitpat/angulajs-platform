@@ -1,132 +1,134 @@
 /* ------------------- GENERAL ------------------- */
 html {
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-	margin: 0;
-	padding: 0;
-	height: 100%;
-	font-size: 100%;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-		Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
-		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-	background-color: #F7F7F7;
-}
-
-* {
-	box-shadow: none !important;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #F7FFF7;
 }
 
 ::placeholder {
-	font-size: 0.95rem;
-	font-weight: 300;
+    font-size: 0.95rem;
+    font-weight: 300;
 }
 
 .fs-11 {
-	font-size: 1.1rem;
+    font-size: 1.1rem;
 }
 
 .fs-09 {
-	font-size: 0.9rem;
+    font-size: 0.9rem;
 }
 
 .fs-08 {
-	font-size: 0.8rem;
+    font-size: 0.8rem;
 }
 
 .label-09 label {
-	font-size: 0.9rem;
+    font-size: 0.9rem;
 }
 
 .fw-bold {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 .fw-lighter {
-	font-weight: lighter;
+    font-weight: lighter;
 }
 
 .bottom-0 {
-	bottom: 0;
+    bottom: 0;
 }
 
 .hover-dark:hover {
-	background-color: rgba(150, 150, 150, 0.2);
-	cursor: pointer;
+    background-color: rgba(150, 150, 150, 0.2);
+    cursor: pointer;
 }
 
 .text-pink {
-	color: #FF69B4;
+    color: #FF69B4;
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }
 
 /* -------------------- LOGIN --------------------- */
 .login-logo {
-	width: 8rem;
+    width: 8rem;
 }
 
 /* ------------------- APP BODY ------------------- */
 .app-body {
-	height: 100%;
+    height: 100%;
 }
 
 /* ------------------- PLATFORM BODY ------------------- */
 .platform-body {
-	padding-top: 56px;
-	min-height: 100%;
-	position: relative;
+    padding-top: 56px;
+    min-height: 100%;
+    position: relative;
 }
 
 /* ------------------- NAVBAR ------------------- */
 .bg-purple {
-	background-color: #4b4ba3 !important;
+    background-color: #4b4ba3 !important;
 }
 
 .navbar-logo {
-	width: 35px;
+    width: 35px;
 }
 
 /* ------------------- MAIN VIEW ------------------- */
 .main-view {
-	padding-bottom: 100px;
+    padding-bottom: 100px;
+}
+
+/* ------------------- TABLE ------------------- */
+.table td,
+.table th {
+    vertical-align: middle;
 }
 
 /* ------------------- SMART TABLE ------------------- */
 .st-sort-ascent:before {
-	content: '\25B2';
+    content: '\25B2';
 }
 
 .st-sort-descent:before {
-	content: '\25BC';
+    content: '\25BC';
 }
 
 /* ------------------- FOOTER ------------------- */
 .main-footer {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 24px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 24px;
 }
 
 .main-footer .container .row .col {
-	text-align: center;
+    text-align: center;
 }
 
 .main-footer .container .row .col {
-	color: #606060;
-	font-weight: 300;
+    color: #606060;
+    font-weight: 300;
 }
 
 /* ------------------- SCROLLBAR ------------------ */
 
 ::-webkit-scrollbar {
-	width: 6px;
+    width: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
-	-webkit-border-radius: 10px;
-	border-radius: 10px;
-	background: rgba(50, 50, 50, 0.8);
-	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(50, 50, 50, 0.8);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
