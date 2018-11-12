@@ -1,5 +1,19 @@
 (function() {
 
+	$(document).ready(function() {
+		$("body").tooltip({ selector: '[data-toggle=tooltip]', trigger: 'hover', boundary: 'window'});
+	});
+
+	// Scroll to top button appear
+	$(document).on('scroll',function() {
+		var scrollDistance = $(this).scrollTop();
+		if (scrollDistance > 100) {
+			$('.scroll-to-top').fadeIn();
+		} else {
+			$('.scroll-to-top').fadeOut();
+		}
+	});
+
 	angular.module("healthmastersApp", [
 		"ngRoute",
 		"angular-jwt",
@@ -54,10 +68,10 @@
   			}
 		})
 		.when("/", {
-			redirectTo: '/trainee/add'
+			redirectTo: '/trainee/find'
 		})
 		.otherwise({
-			redirectTo: '/trainee/add'
+			redirectTo: '/trainee/find'
 		});
 
 	})

@@ -15,6 +15,11 @@
 				    behavior: "smooth"
 				});
 			}
+
+			$rootScope.toggleSidebar = function() {
+				$("body").toggleClass("sidebar-toggled");
+				$(".sidebar").toggleClass("toggled");
+			};
 		};
 
 		generalUtilityFactory.prepareDate = function(date){
