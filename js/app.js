@@ -24,7 +24,9 @@
 	])
 	.config(function($httpProvider, $routeProvider, $mdThemingProvider, cfpLoadingBarProvider, jwtOptionsProvider) {
 
+		/* ================= Material Design Themes ================= */
 		$mdThemingProvider.theme("success");
+		$mdThemingProvider.theme("danger");
 
 		/* ================= Loading Spinner ================= */
 		cfpLoadingBarProvider.includeSpinner = false;

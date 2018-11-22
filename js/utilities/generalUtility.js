@@ -124,8 +124,16 @@
 		};
 
 		generalUtilityFactory.showToast = function(message, theme){
-			$mdToast.show($mdToast.simple().textContent(message).toastClass("position-fixed").theme(theme));
+			$mdToast.show($mdToast.simple().textContent(message).toastClass("position-fixed font-weight-bold").theme(theme));
 		};
+
+		generalUtilityFactory.showErrorToast = function(response) {
+			if (response.status === -1) {
+				generalUtilityFactory.showToast("Σφάλμα. Η ενέργεια απέτυχε.", "danger");
+			} else if (response.data.code === "role_invalid") {
+				generalUtilityFactory.showToast("Δεν έχεις επαρκή δικαιώματα.", "danger");
+			}
+		}
 
 		return generalUtilityFactory;
 
