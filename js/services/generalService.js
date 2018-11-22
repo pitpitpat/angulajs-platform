@@ -74,6 +74,10 @@
 				url: url,
 				headers: { 'Content-Type': 'application/json' },
 				data: preparedNewTrainee
+			})
+			.catch(function(response) {
+				generalUtility.showErrorToast(response);
+				throw response;
 			});
 		};
 
@@ -103,6 +107,10 @@
 				url: url,
 				headers: { 'Content-Type': 'application/json' },
 				data: preparedTrainee
+			})
+			.catch(function(response) {
+				generalUtility.showErrorToast(response);
+				throw response;
 			});
 		};
 
@@ -119,6 +127,10 @@
 				url: url,
 				headers: { 'Content-Type': 'application/json' },
 				data: preparedNewMeasurementMonths
+			})
+			.catch(function(response) {
+				generalUtility.showErrorToast(response);
+				throw response;
 			});
 		};
 
@@ -142,6 +154,10 @@
 				url: url,
 				headers: { 'Content-Type': 'application/json' },
 				data: preparedNewMeasurement
+			})
+			.catch(function(response) {
+				generalUtility.showErrorToast(response);
+				throw response;
 			});
 		};
 
@@ -162,6 +178,10 @@
 				url: url,
 				headers: { 'Content-Type': 'application/json' },
 				data: data
+			})
+			.catch(function(response) {
+				generalUtility.showErrorToast(response);
+				throw response;
 			});
 		};
 

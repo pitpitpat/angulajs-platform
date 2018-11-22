@@ -25,8 +25,9 @@
 
 			generalService.deleteMeasurement(trainee_id, measurement._id, measurement.measurement_date).then(function(response) {
 				var index = $scope.mergedMeasurements.allMeasurements.indexOf(measurement);
-				$scope.mergedMeasurements.allMeasurements.splice(index, 1);		// Fix: not removed from $scope.measurementsByMonth
+				$scope.mergedMeasurements.allMeasurements.splice(index, 1);		// Must fix: not removed from $scope.measurementsByMonth
 				console.log(response.data);
+				generalUtility.showToast("Η μέτρηση διαγράφηκε.", "success");
 			});
 		}
 

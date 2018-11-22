@@ -1,7 +1,7 @@
 (function() {
 
 	angular.module('healthmastersApp')
-		.controller('addMeasurementsCtrl', function($rootScope, $scope, generalService) {
+		.controller('addMeasurementsCtrl', function($rootScope, $scope, generalService, generalUtility) {
 
 			$rootScope.currentPage = 'add';
 			$scope.newMeasurement = {};
@@ -24,6 +24,7 @@
 				generalService.insertNewMeasurement($scope.newMeasurement).then(function(response) {
 					console.log(response.data);
 					initNewMeasurement();
+					generalUtility.showToast("Η μέτρηση προστέθηκε.", "success");
 				});
 			}
 

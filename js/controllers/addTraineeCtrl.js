@@ -31,6 +31,7 @@
 				$rootScope.allTrainees.push(preparedNewTrainee);
 				console.log($rootScope.allTrainees);
 				initNewTrainee();
+				generalUtility.showToast("Ο ασκούμενος προστέθηκε.", "success");
 			});
 		}
 
