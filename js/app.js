@@ -18,9 +18,13 @@
 		"ngRoute",
 		"angular-jwt",
 		"angular-loading-bar",
-		"smart-table"
+		"smart-table",
+		'ngMaterial',
+		'ngMessages'
 	])
-	.config(function($httpProvider, $routeProvider, cfpLoadingBarProvider, jwtOptionsProvider) {
+	.config(function($httpProvider, $routeProvider, $mdThemingProvider, cfpLoadingBarProvider, jwtOptionsProvider) {
+
+		$mdThemingProvider.theme("success");
 
 		/* ================= Loading Spinner ================= */
 		cfpLoadingBarProvider.includeSpinner = false;

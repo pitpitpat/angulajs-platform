@@ -1,7 +1,7 @@
 (function() {
 
 	angular.module('healthmastersApp')
-	.factory('generalUtility', function($rootScope) {
+	.factory('generalUtility', function($rootScope, $mdToast) {
 
 		var generalUtilityFactory = {};
 
@@ -121,6 +121,10 @@
 			};
 
 			return mergedMeasurements;
+		};
+
+		generalUtilityFactory.showToast = function(message, theme){
+			$mdToast.show($mdToast.simple().textContent(message).toastClass("position-fixed").theme(theme));
 		};
 
 		return generalUtilityFactory;

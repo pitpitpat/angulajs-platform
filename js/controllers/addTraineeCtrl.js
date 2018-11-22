@@ -1,7 +1,7 @@
 (function() {
 
 	angular.module('healthmastersApp')
-	.controller('addTraineeCtrl', function($rootScope, $scope, generalService, generalUtility) {
+	.controller('addTraineeCtrl', function($rootScope, $scope, $mdToast, generalService, generalUtility) {
 
 		$rootScope.currentPage = 'add';
 		$scope.newTrainee = {};
@@ -31,6 +31,7 @@
 				$rootScope.allTrainees.push(preparedNewTrainee);
 				console.log($rootScope.allTrainees);
 				initNewTrainee();
+				generalUtility.showToast("Ο ασκούμενος προστέθηκε.", "success");
 			});
 		}
 
