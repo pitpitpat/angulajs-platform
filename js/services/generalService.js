@@ -11,8 +11,7 @@
 
 			return $http({
 				method: "GET",
-				url: url,
-				headers: { 'Content-Type': 'application/json' }
+				url: url
 			});
 		};
 
@@ -183,6 +182,16 @@
 				generalUtility.showErrorToast(response);
 				throw response;
 			});
+		};
+
+		generalServiceFactory.getUserInfo = function() {
+			var endpoint = '/user/info/get';
+			var url = $rootScope.healthmastersAPI + endpoint;
+
+			return $http({
+				method: "GET",
+				url: url
+			})
 		};
 
 		return generalServiceFactory;

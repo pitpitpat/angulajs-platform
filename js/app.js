@@ -4,8 +4,7 @@
 		$("body").tooltip({ selector: '[data-toggle=tooltip]', trigger: 'hover', boundary: 'window'});
 	});
 
-	// Scroll to top button appear
-	$(document).on('scroll',function() {
+	$(document).on('scroll',function() {	// Scroll to top button appear
 		var scrollDistance = $(this).scrollTop();
 		if (scrollDistance > 100) {
 			$('.scroll-to-top').fadeIn();
@@ -88,6 +87,10 @@
 
 		authManager.checkAuthOnRefresh();
 		authManager.redirectWhenUnauthenticated();
+
+		generalService.getUserInfo().then(function(response) {
+			console.log(response.data);
+		});
 
 		generalService.getAllTrainees().then(function(response) {
 			$rootScope.allTrainees = response.data.all_trainees;
