@@ -1,7 +1,7 @@
 (function() {
 
 	angular.module('healthmastersApp')
-	.controller('showMeasurementsCtrl', function($rootScope, $scope, $routeParams, $mdToast, generalService, generalUtility) {
+	.controller('showMeasurementsCtrl', function($rootScope, $scope, $routeParams, generalService, generalUtility) {
 
 		$rootScope.currentPage = 'show';
 		$scope.trainee_id = $routeParams.ID;

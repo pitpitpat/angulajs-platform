@@ -1,7 +1,7 @@
 (function() {
 
 	angular.module('healthmastersApp')
-	.controller('addTraineeCtrl', function($rootScope, $scope, $mdToast, generalService, generalUtility) {
+	.controller('addTraineeCtrl', function($rootScope, $scope, generalService, generalUtility) {
 
 		$rootScope.currentPage = 'add';
 		$scope.newTrainee = {};
