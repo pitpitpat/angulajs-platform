@@ -36,11 +36,12 @@
 			tokenGetter: function(options) {
                 token = localStorage.healthmastersJWT;
 				if (!token) {
-					window.location.href = "/login";
+					window.location.href = "#!/logout";
 				}
 				return token;
 			},
-			whiteListedDomains: ["api.ppserver.me", "localhost"]
+			whiteListedDomains: ["api.ppserver.me", "localhost"],
+			unauthenticatedRedirectPath: '/logout'
 		});
 		$httpProvider.interceptors.push("jwtInterceptor");
 
@@ -81,9 +82,12 @@
 		});
 
 	})
-	.run(function ($rootScope, generalUtility, generalService) {
+	.run(function ($rootScope, generalUtility, generalService, authManager) {
 
 		generalUtility.init_app();
+
+		authManager.checkAuthOnRefresh();
+		authManager.redirectWhenUnauthenticated();
 
 		generalService.getAllTrainees().then(function(response) {
 			$rootScope.allTrainees = response.data.all_trainees;
