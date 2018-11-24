@@ -194,6 +194,48 @@
 			})
 		};
 
+		generalServiceFactory.updateUserInfo = function(userId, newInfo) {
+			var endpoint = '/user/info/update';
+			var url = $rootScope.healthmastersAPI + endpoint;
+
+			var data = {
+				user_id: userId,
+				new_info: newInfo
+			};
+
+			return $http({
+				method: "POST",
+				url: url,
+				headers: { 'Content-Type': 'application/json' },
+				data: data
+			})
+			.catch(function(response) {
+				generalUtility.showErrorToast(response);
+				throw response;
+			});
+		};
+
+		generalServiceFactory.updateUserPassword = function(newPassword, currentPassword) {
+			var endpoint = '/user/password/update';
+			var url = $rootScope.healthmastersAPI + endpoint;
+
+			var data = {
+				new_password: newPassword,
+				current_password: currentPassword
+			};
+
+			return $http({
+				method: "POST",
+				url: url,
+				headers: { 'Content-Type': 'application/json' },
+				data: data
+			})
+			.catch(function(response) {
+				generalUtility.showErrorToast(response);
+				throw response;
+			});
+		};
+
 		return generalServiceFactory;
 
 	});
