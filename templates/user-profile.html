@@ -1,0 +1,60 @@
+<div class="user-profile">
+	<div class="row justify-content-center">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header blue-gradient text-white">
+					<i class="fas fa-user mr-1"></i> Τα στοιχεία σου
+				</div>
+				<div class="card-body">
+					<form class="label-09" name="userInfoForm">
+						<div class="form-group">
+							<label>Όνομα</label><label class="text-danger">*</label>
+							<input ng-model="tmpUser.name" type="text" class="form-control form-control-sm" required>
+						</div>
+						<div class="form-group">
+							<label>Επίθετο</label><label class="text-danger">*</label>
+							<input ng-model="tmpUser.surname" type="text" class="form-control form-control-sm" required>
+						</div>
+						<div class="form-group">
+							<label>Email</label><label class="text-danger">*</label>
+							<input ng-model="tmpUser.email" type="email" class="form-control form-control-sm" disabled required>
+						</div>
+						<div class="row mt-3">
+							<div class="col text-center">
+								<button ng-click="updateUserInfo()" ng-disabled="!userInfoForm.$valid" type="submit" class="btn btn-primary">ΕΝΗΜΕΡΩΣΗ</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header blue-gradient text-white">
+					<i class="fas fa-key mr-1"></i> Ο κωδικός σου
+				</div>
+				<div class="card-body">
+					<form class="label-09" name="userPasswordForm">
+						<div class="form-group">
+							<label>Νέος Κωδικός</label><label class="text-danger">*</label>
+							<input ng-model="credentials.newPassword" type="password" class="form-control form-control-sm" placeholder="Εισάγετε τον νέο κωδικό" required>
+						</div>
+						<div class="form-group">
+							<label>Επιβεβαίωση Νέου Κωδικού</label><label class="text-danger">*</label>
+							<input ng-model="credentials.confirmNewPassword" type="password" class="form-control form-control-sm" placeholder="Εισάγετε τον νέο κωδικό ξανά" required>
+						</div>
+						<div class="form-group">
+							<label>Παλιός Κωδικός</label><label class="text-danger">*</label>
+							<input ng-model="credentials.currentPassword" type="password" class="form-control form-control-sm" placeholder="Εισάγετε τον παλιό κωδικό σας" required>
+						</div>
+						<div class="row mt-3">
+							<div class="col text-center">
+								<button ng-click="updateUserPassword()" ng-disabled="!userPasswordForm.$valid || credentials.newPassword !== credentials.confirmNewPassword" type="submit" class="btn btn-primary">ΕΝΗΜΕΡΩΣΗ</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

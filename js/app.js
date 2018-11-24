@@ -66,6 +66,10 @@
 			templateUrl: '../templates/show-measurements.html',
 			controller: 'showMeasurementsCtrl'
 		})
+		.when("/user/profile", {
+			templateUrl: '../templates/user-profile.html',
+			controller: 'userProfileCtrl'
+		})
 		.when("/logout", {
 			template: "",
 			controller: function() {
@@ -89,7 +93,8 @@
 		authManager.redirectWhenUnauthenticated();
 
 		generalService.getUserInfo().then(function(response) {
-			console.log(response.data);
+			$rootScope.user = response.data.user_info;
+			console.log($rootScope.user);
 		});
 
 		generalService.getAllTrainees().then(function(response) {

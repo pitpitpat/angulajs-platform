@@ -132,6 +132,8 @@
 				generalUtilityFactory.showToast("Σφάλμα. Η ενέργεια απέτυχε.", "danger");
 			} else if (response.data.code === "role_invalid") {
 				generalUtilityFactory.showToast("Δεν έχεις επαρκή δικαιώματα.", "danger");
+			} else if (response.data.code === "invalid_current_password") {
+				generalUtilityFactory.showToast("Λάθος παλιός κωδικός.", "danger");
 			}
 		}
 
