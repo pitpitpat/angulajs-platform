@@ -4,8 +4,7 @@
 		$("body").tooltip({ selector: '[data-toggle=tooltip]', trigger: 'hover', boundary: 'window'});
 	});
 
-	// Scroll to top button appear
-	$(document).on('scroll',function() {
+	$(document).on('scroll',function() {	// Scroll to top button appear
 		var scrollDistance = $(this).scrollTop();
 		if (scrollDistance > 100) {
 			$('.scroll-to-top').fadeIn();
@@ -67,6 +66,10 @@
 			templateUrl: '../templates/show-measurements.html',
 			controller: 'showMeasurementsCtrl'
 		})
+		.when("/user/profile", {
+			templateUrl: '../templates/user-profile.html',
+			controller: 'userProfileCtrl'
+		})
 		.when("/logout", {
 			template: "",
 			controller: function() {
@@ -88,6 +91,11 @@
 
 		authManager.checkAuthOnRefresh();
 		authManager.redirectWhenUnauthenticated();
+
+		generalService.getUserInfo().then(function(response) {
+			$rootScope.user = response.data.user_info;
+			console.log($rootScope.user);
+		});
 
 		generalService.getAllTrainees().then(function(response) {
 			$rootScope.allTrainees = response.data.all_trainees;
