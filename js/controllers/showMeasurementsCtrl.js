@@ -18,6 +18,7 @@
 		}
 
 		$scope.deleteMeasurement = function(id) {
+			$('[data-toggle="tooltip"]').tooltip('hide');
 			var trainee_id = $scope.mergedMeasurements.trainee_id;
 			var measurement = $scope.mergedMeasurements.allMeasurements.find(function(measurement) {
 				return measurement._id === id;
