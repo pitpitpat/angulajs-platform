@@ -9,9 +9,8 @@
 		<link rel="icon" type="image/x-icon" href="../img/logo-healthmasters.png"/>
 
 		<!-- CSS -->
-		<link rel="stylesheet" href="../bower_components/bootstrap-4.1.3/css/bootstrap.min.css">
 		<link rel="stylesheet" href="../bower_components/fontawesome-5.3.1/css/all.min.css" type="text/css">
-		<link rel="stylesheet" href="../bower_components/angular-loading-bar/build/loading-bar.min.css" type="text/css" media="all">
+		<link rel="stylesheet" href="../bower_components/bootstrap-4.1.3/css/bootstrap.min.css">
 		<link rel="stylesheet" href="../css/app.css">
 		<link rel="stylesheet" href="../css/sb-admin.css">
 	</head>
@@ -19,29 +18,43 @@
 
 		<div ng-app="loginApp">
 			<div class="container">
-				<div class="row justify-content-center">
+				<div class="row justify-content-center mt-5">
 					<div class="col text-center">
-						<img class="mt-5 login-logo" src="../img/logo-healthmasters.png">
+						<img class="login-logo" src="../img/logo-healthmasters.png">
 					</div>
 				</div>
-				<div class="card card-login mx-auto mt-5">
-					<div class="card-header text-center">The Healthmasters</div>
-					<div class="card-body">
-						<form name="loginForm">
-							<div class="form-group">
-								<div class="form-label-group">
-									<input ng-model="credentials.email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
-									<label for="inputEmail">Email</label>
-								</div>
+				<div class="row justify-content-center mt-5">
+					<div class="col">
+						<div class="card mw-25 mx-auto">
+							<div class="card-header text-center">The Healthmasters</div>
+							<div class="card-body">
+								<form name="loginForm">
+									<div class="form-group">
+										<div class="form-label-group">
+											<input ng-model="credentials.email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
+											<label for="inputEmail">Email</label>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="form-label-group">
+											<input ng-model="credentials.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
+											<label for="inputPassword">Κωδικός</label>
+										</div>
+									</div>
+									<button type="submit" ng-click="login()" ng-disabled="!loginForm.$valid" class="btn btn-primary btn-block" href="index.html">Είσοδος</button>
+								</form>
 							</div>
-							<div class="form-group">
-								<div class="form-label-group">
-									<input ng-model="credentials.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
-									<label for="inputPassword">Κωδικός</label>
-								</div>
-							</div>
-							<button type="submit" ng-click="login()" ng-disabled="!loginForm.$valid" class="btn btn-primary btn-block" href="index.html">Είσοδος</button>
-						</form>
+						</div>
+					</div>
+				</div>
+				<div class="row justify-content-center mt-2">
+					<div class="col">
+						<div class="alert alert-danger mw-25 mx-auto d-none" ng-class="{'d-block': status === 'email_invalid'}" role="alert">
+							Λάθος email.
+						</div>
+						<div class="alert alert-danger mw-25 mx-auto d-none" ng-class="{'d-block': status === 'password_invalid'}" role="alert">
+							Λάθος κωδικός.
+						</div>
 					</div>
 				</div>
 			</div>
@@ -51,7 +64,6 @@
 		<script src="../bower_components/jquery-3.3.1/jquery-3.3.1.min.js"></script>
 		<script src="../bower_components/bootstrap-4.1.3/js/bootstrap.min.js"></script>
 		<script src="../bower_components/angular/angular.min.js"></script>
-		<script src="../bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
 
 		<!-- AngularJS [app, utilities, services, controllers] -->
 		<script src="loginApp.js"></script>
