@@ -3,12 +3,12 @@
 	angular.module("loginApp", [])
 	.run(function ($rootScope, $http) {
 
+		$rootScope.status = null;
 		$rootScope.credentials = {
 			email: null,
 			password: null
 		};
-
-		$rootScope.healthmastersAPI = 'http://api.ppserver.me'
+		$rootScope.healthmastersAPI = 'http://api.ppserver.me';
 
 		var login = function(email, password) {
 			var endpoint = '/login';
@@ -35,8 +35,15 @@
 			})
 			.catch(function(response) {
 				console.log(response.data);
+				if (response.data.code === "login_email_invalid") {
+					$rootScope.status = "email_invalid";
+				} else if (response.data.code === "login_password_invalid") {
+					$rootScope.status = "password_invalid";
+				}
 			});
 		};
+
+		/* ================= On start ================= */
 
 		if (localStorage.healthmastersJWT) {
 			window.location.href = "/";
