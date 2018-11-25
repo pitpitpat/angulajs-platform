@@ -1,7 +1,7 @@
 (function() {
 
 	angular.module('healthmastersApp')
-		.controller('findTraineeCtrl', function($rootScope, $scope, generalService) {
+		.controller('showTraineeCtrl', function($rootScope, $scope, generalService) {
 
 			$rootScope.currentPage = 'find';
 
@@ -10,8 +10,8 @@
 			};
 
 			$scope.goToTraineeInfo = function(traineeId) {
-				window.location.href = '#!/trainee/show-update/' + traineeId;
 				$('[data-toggle="tooltip"]').tooltip('hide');
+				window.location.href = '#!/trainee/update/' + traineeId;
 			};
 
 			/* ================= On start ================= */

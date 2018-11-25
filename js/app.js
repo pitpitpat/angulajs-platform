@@ -33,7 +33,7 @@
 		/* ================= JWT Authendication ================= */
 		jwtOptionsProvider.config({
 			tokenGetter: function(options) {
-                token = localStorage.healthmastersJWT;
+				token = localStorage.healthmastersJWT;
 				if (!token) {
 					window.location.href = "#!/logout";
 				}
@@ -54,11 +54,11 @@
 			templateUrl: '../templates/add-measurement.html',
 			controller: 'addMeasurementsCtrl'
 		})
-		.when("/trainee/find", {
-			templateUrl: '../templates/find-trainee.html',
-			controller: 'findTraineeCtrl'
+		.when("/trainee/show", {
+			templateUrl: '../templates/show-trainee.html',
+			controller: 'showTraineeCtrl'
 		})
-		.when("/trainee/show-update/:ID", {
+		.when("/trainee/update/:ID", {
 			templateUrl: '../templates/update-trainee.html',
 			controller: 'updateTraineeCtrl'
 		})
@@ -78,10 +78,10 @@
   			}
 		})
 		.when("/", {
-			redirectTo: '/trainee/find'
+			redirectTo: '/trainee/show'
 		})
 		.otherwise({
-			redirectTo: '/trainee/find'
+			redirectTo: '/trainee/show'
 		});
 
 	})

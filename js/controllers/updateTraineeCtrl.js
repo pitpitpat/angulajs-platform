@@ -3,7 +3,7 @@
 	angular.module('healthmastersApp')
 	.controller('updateTraineeCtrl', function($rootScope, $scope, $routeParams, generalService, generalUtility) {
 
-		$rootScope.currentPage = 'show-update';
+		$rootScope.currentPage = 'update';
 		$scope.traineeLoaded = false;
 		$scope.$watch('allTrainees', function(newAllTrainees) {
 			if (newAllTrainees) {
