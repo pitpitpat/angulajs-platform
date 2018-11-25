@@ -33,7 +33,7 @@
 		/* ================= JWT Authendication ================= */
 		jwtOptionsProvider.config({
 			tokenGetter: function(options) {
-                token = localStorage.healthmastersJWT;
+				token = localStorage.healthmastersJWT;
 				if (!token) {
 					window.location.href = "#!/logout";
 				}
