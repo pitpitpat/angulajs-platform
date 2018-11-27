@@ -6,7 +6,7 @@
 		var generalUtilityFactory = {};
 
 		generalUtilityFactory.init_app = function(){
-			$rootScope.healthmastersAPI = 'http://api.ppserver.me';
+			$rootScope.healthmastersAPI = 'https://api.ppserver.me';
 
 			$rootScope.goToTop = function() {
 				window.scrollTo({
