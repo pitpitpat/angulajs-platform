@@ -7,7 +7,7 @@
 </ol>
 <div class="add-measurement">
 	<div class="row justify-content-center">
-		<div class="col">
+		<div class="col-md-8">
 			<div class="card">
 				<div class="card-header purple-gradient text-white">
 					<i class="fas fa-weight mr-1"></i> Στοιχεία Μέτρησης
@@ -15,41 +15,41 @@
 				<div class="card-body">
 					<form class="label-09" name="newMeasurementForm">
 						<div class="form-row justify-content-center">
-							<div class="form-group col-md-3">
+							<div class="form-group col-md-6">
 								<label>Ασκούμενος</label><label class="text-danger">*</label>
 								<select ng-options="trainee.id as trainee.fullname for trainee in allTrainees" ng-model="newMeasurement.trainee_id" type="text" class="form-control form-control-sm" placeholder="Ασκούμενος" required>
 									<option value="" disabled selected>Επιλέξτε ασκούμενο</option>
 								</select>
 							</div>
-							<div class="form-group col-md-3">
+							<div class="form-group col-md-6">
 								<label>Ημερ. Μέτρησης</label><label class="text-danger">*</label>
 								<input ng-model="newMeasurement.measurement_date" type="date" class="form-control form-control-sm" required>
 							</div>
 						</div>
 						<div class="form-row justify-content-center">
-							<div class="form-group col-md-2">
+							<div class="form-group col-md-4">
 								<label>Βάρος</label>
 								<input ng-model="newMeasurement.weight" type="text" class="form-control form-control-sm" placeholder="π.χ. 80.5">
 							</div>
-							<div class="form-group col-md-2">
+							<div class="form-group col-md-4">
 								<label>Λίπος %</label>
 								<input ng-model="newMeasurement.fat" type="text" class="form-control form-control-sm" placeholder="π.χ. 15.5">
 							</div>
-							<div class="form-group col-md-2">
+							<div class="form-group col-md-4">
 								<label>Μυική Μάζα %</label>
 								<input ng-model="newMeasurement.muscle" type="text" class="form-control form-control-sm" placeholder="π.χ. 40.5">
 							</div>
 						</div>
 						<div class="form-row justify-content-center">
-							<div class="form-group col-md-2">
+							<div class="form-group col-md-4">
 								<label>BMI</label>
 								<input ng-model="newMeasurement.bmi" type="text" class="form-control form-control-sm" placeholder="π.χ. 20.5">
 							</div>
-							<div class="form-group col-md-2">
+							<div class="form-group col-md-4">
 								<label>RM</label>
 								<input ng-model="newMeasurement.rm" type="text" class="form-control form-control-sm" placeholder="π.χ. 1700">
 							</div>
-							<div class="form-group col-md-2">
+							<div class="form-group col-md-4">
 								<label>Σπλαχνικό</label>
 								<input ng-model="newMeasurement.visceral" type="text" class="form-control form-control-sm" placeholder="π.χ. 6">
 							</div>
