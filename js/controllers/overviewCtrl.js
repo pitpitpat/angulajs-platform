@@ -68,7 +68,14 @@
 				var ctx2 = document.getElementById("barOverview");
 				var myBarChart = new Chart(ctx2, {
 					type: 'bar',
-					data: data
+					data: data,
+					options: {
+						scales: {
+							xAxes: [{
+								barPercentage: 0.7
+							}]
+						}
+					}
 				});
 			}
 		});
