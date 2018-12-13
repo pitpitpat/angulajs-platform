@@ -46,6 +46,10 @@
 
 		/* ================= Routing ================= */
 		$routeProvider
+		.when("/overview", {
+			templateUrl: '../templates/overview.html',
+			controller: 'overviewCtrl'
+		})
 		.when("/trainee/add", {
 			templateUrl: '../templates/add-trainee.html',
 			controller: 'addTraineeCtrl'
@@ -78,10 +82,10 @@
   			}
 		})
 		.when("/", {
-			redirectTo: '/trainee/show'
+			redirectTo: '/overview'
 		})
 		.otherwise({
-			redirectTo: '/trainee/show'
+			redirectTo: '/overview'
 		});
 
 	})
