@@ -59,6 +59,8 @@
 						labels: ["0-10", "11-17", "18-24", "25-30", "31-40", "41-50", "51+"]
 					},
 					options: {
+						responsive: true,
+						maintainAspectRatio: false,
 						scales: {
 							xAxes: [{
 								barPercentage: 0.8
@@ -103,6 +105,8 @@
 						labels: ["0-10", "11-17", "18-24", "25-30", "31-40", "41-50", "51+"]
 					},
 					options: {
+						responsive: true,
+						maintainAspectRatio: false,
 						scales: {
 							xAxes: [{
 								barPercentage: 0.7
