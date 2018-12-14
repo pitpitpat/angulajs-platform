@@ -16,6 +16,22 @@ body {
     font-weight: 300;
 }
 
+.fs-2-3 {
+    font-size: 2.3rem;
+}
+
+.fs-1-5 {
+    font-size: 1.5rem;
+}
+
+.fs-1-3 {
+    font-size: 1.3rem;
+}
+
+.fs-1-5 {
+    font-size: 1.5rem;
+}
+
 .fs-11 {
     font-size: 1.1rem;
 }
@@ -63,6 +79,22 @@ body {
 
 .mw-25 {
     max-width: 25rem;
+}
+
+.color-gray {
+    color: #666;
+}
+
+.color-dark-gray {
+    color: #444;
+}
+
+#genderOverview, #ageOverview {
+    height: 240px !important;
+}
+
+#genderAgeOverview {
+    height: 500px !important;
 }
 
 /* -------------------- TOASTS -------------------- */

@@ -137,6 +137,35 @@
 			}
 		}
 
+		generalUtilityFactory.getTraineeAge = function(trainee) {
+			today =  new Date();
+			return today.getFullYear() - trainee.birth_date.getFullYear();
+		}
+
+		generalUtilityFactory.getTraineesByAge = function(trainees, min, max) {
+			if (!min) {
+				min = -9999;
+			}
+
+			if (!max) {
+				max = 9999;
+			}
+
+			var traineesByAge = trainees.filter(function(trainee) {
+				return generalUtilityFactory.getTraineeAge(trainee) >= min && generalUtilityFactory.getTraineeAge(trainee) <= max;
+			});
+
+			return traineesByAge;
+		}
+
+		generalUtilityFactory.getTraineesByGender = function(trainees, gender) {
+			var traineesByGender = trainees.filter(function(trainee) {
+				return trainee.gender === gender;
+			});
+
+			return traineesByGender;
+		}
+
 		return generalUtilityFactory;
 
 	});
