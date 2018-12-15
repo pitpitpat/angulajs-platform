@@ -69,11 +69,7 @@
 				$rootScope.allTrainees = generalUtility.prepareListDates($rootScope.allTrainees, "birth_date");
 				$rootScope.allTrainees = generalUtility.prepareListDates($rootScope.allTrainees, "registration_date");
 
-				console.log("controller");
-				console.log($rootScope.user);
-				console.log($location.$$path);
-
-				if ($location.$$path === "/") {
+				if ($location.$$path === "/") {		// If no state is specified redirect to overview
 					$state.go("base.overview");
 				}
 			}
@@ -112,7 +108,13 @@
 		.state("base.measurement.show", {
 			url: "show/:ID",
 			templateUrl: '../templates/show-measurements.html',
-			controller: 'showMeasurementsCtrl'
+			controller: 'showMeasurementsCtrl',
+			resolve: {
+				measurements: function($stateParams, generalService) {
+					var traineeId = $stateParams.ID;
+					return generalService.getMeasurementsOfTrainee(traineeId);
+				}
+			}
 		})
 		.state("base.user", {
 			url: "user/"

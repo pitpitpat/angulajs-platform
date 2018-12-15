@@ -3,14 +3,15 @@
 	<li class="breadcrumb-item">
 		<a ui-sref="base.trainee.show">Ασκούμενοι</a>
 	</li>
+	<li class="breadcrumb-item active">{{trainee.fullname}}</li>
 	<li class="breadcrumb-item active">Μετρήσεις</li>
 </ol>
 <div class="show-measurement">
-	<div class="row justify-content-center">
+	<div class="row justify-content-center mb-4">
 		<div class="col">
 			<div class="card">
-				<div class="card-header blue-gradient text-white">
-					<i class="fas fa-table mr-1"></i> Πίνακας Μετρήσεων
+				<div class="card-header">
+					<i class="fas fa-table mr-1"></i> Μετρήσεις
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
@@ -55,6 +56,40 @@
 								</tr>
 							</tfoot>
 						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row mb-md-4">
+		<div class="col-md-6 mb-4 mb-md-0">
+			<div class="card">
+				<div class="card-header">
+					<i class="fas fa-chart-line"></i> Εξέλιξη Βάρους
+				</div>
+				<div class="card-body">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col">
+								<canvas id="weightEvolution"></canvas>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 mb-4 mb-md-0">
+			<div class="card">
+				<div class="card-header">
+					<i class="fas fa-chart-line"></i> Εξέλιξη Λίπους - Μυικότητας - BMI
+				</div>
+				<div class="card-body">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col">
+								<canvas id="fatMuscleEvolution"></canvas>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

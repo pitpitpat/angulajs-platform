@@ -89,12 +89,17 @@ body {
     color: #444;
 }
 
+/* -------------------- CHARTS -------------------- */
 #genderOverview, #ageOverview {
     height: 240px !important;
 }
 
 #genderAgeOverview {
-    height: 500px !important;
+    height: 400px !important;
+}
+
+#weightEvolution, #fatMuscleEvolution {
+    height: 250px !important;
 }
 
 /* -------------------- TOASTS -------------------- */

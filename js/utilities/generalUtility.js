@@ -10,9 +10,9 @@
 
 			$rootScope.goToTop = function() {
 				window.scrollTo({
-				    top: 0,
-				    left: 0,
-				    behavior: "smooth"
+					top: 0,
+					left: 0,
+					behavior: "smooth"
 				});
 			}
 
@@ -47,6 +47,14 @@
 			};
 
 			return preparedTrainee;
+		};
+
+		generalUtilityFactory.getTraineeById = function(trainees, traineeId){
+			var trainee = trainees.find(function(trainee) {
+				return trainee.id === traineeId;
+			})
+
+			return trainee;
 		};
 
 		generalUtilityFactory.updateListItem = function(allItems, updatedItem, id){
