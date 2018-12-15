@@ -1,17 +1,17 @@
 (function() {
 
 	angular.module('healthmastersApp')
-		.controller('showTraineeCtrl', function($rootScope, $scope, generalService) {
+		.controller('showTraineeCtrl', function($rootScope, $scope, $state, generalService) {
 
 			$rootScope.currentPage = 'find';
 
 			$scope.goToTraineeMeasurements = function(traineeId) {
-				window.location.href = '#!/measurements/show/' + traineeId;
+				$state.go("base.measurement.show", {ID: traineeId});
 			};
 
 			$scope.goToTraineeInfo = function(traineeId) {
-				$('[data-toggle="tooltip"]').tooltip('hide');
-				window.location.href = '#!/trainee/update/' + traineeId;
+				$('[data-toggle="tooltip"]').tooltip("hide");
+				$state.go("base.trainee.update", {ID: traineeId});
 			};
 
 			/* ================= On start ================= */

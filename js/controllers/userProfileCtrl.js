@@ -5,12 +5,7 @@
 
 			$rootScope.currentPage = 'user';
 			$scope.credentials = {};
-
-			$scope.$watch('user', function(newUser) {
-				if (newUser) {
-					$scope.tmpUser = angular.copy($rootScope.user);
-				}
-			});
+			$scope.tmpUser = angular.copy($rootScope.user);
 
 			var initCredentials = function() {
 				$scope.credentials = {

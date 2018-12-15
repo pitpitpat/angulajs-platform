@@ -31,7 +31,7 @@
 			login($rootScope.credentials.email, $rootScope.credentials.password)
 			.then(function(response) {
 				localStorage.healthmastersJWT = response.data.token;
-				window.location.href = "/#!/";
+				window.location.href = "/";
 			})
 			.catch(function(response) {
 				console.log(response.data);
