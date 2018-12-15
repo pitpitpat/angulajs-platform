@@ -51,7 +51,7 @@
 			data: {
 				datasets: [{
 					label: "Ασκούμενοι ανά ηλικιακή ομάδα",
-					backgroundColor: "#A390E4", // "#7699D4", #FFD670", "#7494EA", "#9575cd"
+					backgroundColor: "#26c6da", // "#7699D4", #FFD670", "#7494EA", "#9575cd"
 					data: [ages10, ages11_17, ages18_24, ages25_30, ages31_40, ages41_50, ages51]
 				}],
 				labels: ["0-10", "11-17", "18-24", "25-30", "31-40", "41-50", "51+"]
