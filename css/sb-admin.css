@@ -183,14 +183,14 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
 
 @media (min-width: 768px) {
   .sidebar {
-    width: 200px !important;
+    width: 180px !important;
   }
   .sidebar .nav-item .nav-link {
     display: block;
     width: 100%;
     text-align: left;
     padding: 1rem;
-    width: 200px;
+    width: 180px;
   }
   .sidebar .nav-item .nav-link span {
     font-size: 1rem;
@@ -356,7 +356,7 @@ footer.sticky-footer .copyright {
 
 @media (min-width: 768px) {
   footer.sticky-footer {
-    width: calc(100% - 200px);
+    width: calc(100% - 180px);
   }
 }
 
