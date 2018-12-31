@@ -14,14 +14,14 @@
 	});
 
 	angular.module("healthmastersApp", [
-		"ngRoute",
+		'ui.router',
 		"angular-jwt",
 		"angular-loading-bar",
 		"smart-table",
 		'ngMaterial',
 		'ngMessages'
 	])
-	.config(function($httpProvider, $routeProvider, $mdThemingProvider, cfpLoadingBarProvider, jwtOptionsProvider) {
+	.config(function($httpProvider, $stateProvider, $urlRouterProvider, $mdThemingProvider, cfpLoadingBarProvider, jwtOptionsProvider) {
 
 		/* ================= Material Design Themes ================= */
 		$mdThemingProvider.theme("success");
@@ -35,7 +35,7 @@
 			tokenGetter: function(options) {
 				token = localStorage.healthmastersJWT;
 				if (!token) {
-					window.location.href = "#!/logout";
+					window.location.href = "/#!/logout";
 				}
 				return token;
 			},
@@ -45,43 +45,91 @@
 		$httpProvider.interceptors.push("jwtInterceptor");
 
 		/* ================= Routing ================= */
-		$routeProvider
-		.when("/trainee/add", {
+		$urlRouterProvider.otherwise('/');
+
+		$stateProvider
+		.state("base", {
+			url: "/",
+			resolve: {
+				user: function(generalService) {
+					return generalService.getUserInfo();
+				},
+				allTrainees: function(generalService) {
+					return generalService.getAllTrainees();
+				}
+			},
+			controller: function($rootScope, $location, $state, generalUtility, allTrainees, user) {
+				$rootScope.user = user.data.user_info;
+
+				$rootScope.allTrainees = allTrainees.data.all_trainees;
+				for (index in $rootScope.allTrainees) {
+					var trainee = $rootScope.allTrainees[index];
+					$rootScope.allTrainees[index].fullname = trainee.name + ' ' + trainee.surname;
+				}
+				$rootScope.allTrainees = generalUtility.prepareListDates($rootScope.allTrainees, "birth_date");
+				$rootScope.allTrainees = generalUtility.prepareListDates($rootScope.allTrainees, "registration_date");
+
+				if ($location.$$path === "/") {		// If no state is specified redirect to overview
+					$state.go("base.overview");
+				}
+			}
+		})
+		.state("base.overview", {
+			url: "overview",
+			templateUrl: '../templates/overview.html',
+			controller: 'overviewCtrl'
+		})
+		.state("base.trainee", {
+			url: "trainee/"
+		})
+		.state("base.trainee.add", {
+			url: "add",
 			templateUrl: '../templates/add-trainee.html',
 			controller: 'addTraineeCtrl'
 		})
-		.when("/measurement/add", {
-			templateUrl: '../templates/add-measurement.html',
-			controller: 'addMeasurementsCtrl'
-		})
-		.when("/trainee/show", {
+		.state("base.trainee.show", {
+			url: "show",
 			templateUrl: '../templates/show-trainee.html',
 			controller: 'showTraineeCtrl'
 		})
-		.when("/trainee/update/:ID", {
+		.state("base.trainee.update", {
+			url: "update/:ID",
 			templateUrl: '../templates/update-trainee.html',
 			controller: 'updateTraineeCtrl'
 		})
-		.when("/measurements/show/:ID", {
-			templateUrl: '../templates/show-measurements.html',
-			controller: 'showMeasurementsCtrl'
+		.state("base.measurement", {
+			url: "measurement/"
 		})
-		.when("/user/profile", {
+		.state("base.measurement.add", {
+			url: "add",
+			templateUrl: '../templates/add-measurement.html',
+			controller: 'addMeasurementsCtrl'
+		})
+		.state("base.measurement.show", {
+			url: "show/:ID",
+			templateUrl: '../templates/show-measurements.html',
+			controller: 'showMeasurementsCtrl',
+			resolve: {
+				measurements: function($stateParams, generalService) {
+					var traineeId = $stateParams.ID;
+					return generalService.getMeasurementsOfTrainee(traineeId);
+				}
+			}
+		})
+		.state("base.user", {
+			url: "user/"
+		})
+		.state("base.user.profile", {
+			url: "profile",
 			templateUrl: '../templates/user-profile.html',
 			controller: 'userProfileCtrl'
 		})
-		.when("/logout", {
-			template: "",
+		.state("logout", {
+			url: "/logout",
 			controller: function() {
 				delete localStorage.healthmastersJWT;
 				window.location.href = "/login";
   			}
-		})
-		.when("/", {
-			redirectTo: '/trainee/show'
-		})
-		.otherwise({
-			redirectTo: '/trainee/show'
 		});
 
 	})
@@ -91,22 +139,6 @@
 
 		authManager.checkAuthOnRefresh();
 		authManager.redirectWhenUnauthenticated();
-
-		generalService.getUserInfo().then(function(response) {
-			$rootScope.user = response.data.user_info;
-			console.log($rootScope.user);
-		});
-
-		generalService.getAllTrainees().then(function(response) {
-			$rootScope.allTrainees = response.data.all_trainees;
-			for (index in $rootScope.allTrainees) {
-				var trainee = $rootScope.allTrainees[index];
-				$rootScope.allTrainees[index].fullname = trainee.name + ' ' + trainee.surname;
-			}
-			$rootScope.allTrainees = generalUtility.prepareListDates($rootScope.allTrainees, "birth_date");
-			$rootScope.allTrainees = generalUtility.prepareListDates($rootScope.allTrainees, "registration_date");
-			console.log($rootScope.allTrainees);
-		});
 
 	});
 

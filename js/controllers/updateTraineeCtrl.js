@@ -1,17 +1,11 @@
 (function() {
 
 	angular.module('healthmastersApp')
-	.controller('updateTraineeCtrl', function($rootScope, $scope, $routeParams, generalService, generalUtility) {
+	.controller('updateTraineeCtrl', function($rootScope, $scope, $stateParams, generalService, generalUtility) {
 
 		$rootScope.currentPage = 'update';
-		$scope.traineeLoaded = false;
-		$scope.$watch('allTrainees', function(newAllTrainees) {
-			if (newAllTrainees) {
-				$scope.trainee = newAllTrainees.find(function(trainee) {
-					return trainee.id === $routeParams.ID;
-				});
-				$scope.traineeLoaded = true;
-			}
+		$scope.trainee = $rootScope.allTrainees.find(function(trainee) {
+			return trainee.id === $stateParams.ID;
 		});
 
 		$scope.updateTrainee = function() {

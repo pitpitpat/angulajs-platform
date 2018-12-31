@@ -1,0 +1,60 @@
+<div class="add-trainee">
+	<div class="row justify-content-center mb-md-4">
+		<div class="col-md-6 mb-4 mb-md-0">
+			<div class="card">
+				<div class="card-header">
+					<i class="fas fa-chart-pie mr-1"></i> Φύλο
+				</div>
+				<div class="card-body">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-7">
+								<canvas id="genderOverview"></canvas>
+							</div>
+							<div class="col-md-5">
+								<div class="text-center">
+									<div class="mt-5 fs-1-3 text-black-50">Σύνολο Ασκούμενων</div>
+									<div class="mt-2 fs-2-3 color-gray">{{ allTrainees.length }}</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 mb-4 mb-md-0">
+			<div class="card">
+				<div class="card-header">
+					<i class="fas fa-chart-bar mr-1"></i> Ηλικία
+				</div>
+				<div class="card-body">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col">
+								<canvas id="ageOverview" width="400" height="200"></canvas>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row mb-4">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header">
+					<i class="fas fa-chart-bar mr-1"></i> Φύλο - Ηλικία
+				</div>
+				<div class="card-body">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col">
+								<canvas id="genderAgeOverview"></canvas>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
