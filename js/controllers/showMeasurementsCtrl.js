@@ -31,6 +31,10 @@
 
 		/* ================= On start ================= */
 
+		$scope.mergedMeasurements.allMeasurements.sort(function(a, b) {			// Sort measurements by measurement date
+			return a.measurement_date.getTime() - b.measurement_date.getTime();
+		});
+
 		measurementDates = $scope.mergedMeasurements.allMeasurements.map(function(measurement) {
 			return generalUtility.prepareDate(measurement.measurement_date);
 		});
@@ -59,7 +63,7 @@
 					label: 'Κιλά',
 					fill: false,
 					spanGaps: true,
-					lineTension: 0,
+					lineTension: 0.2,
 					backgroundColor: "#ff9800",
 					borderColor: "#ff9800",
 					data: measurementWeights
@@ -88,7 +92,7 @@
 					label: 'Λίπος %',
 					fill: false,
 					spanGaps: true,
-					lineTension: 0,
+					lineTension: 0.2,
 					backgroundColor: "#e91e63",
 					borderColor: "#e91e63",
 					data: measurementFats
@@ -97,7 +101,7 @@
 					label: 'Μυικότητα %',
 					fill: false,
 					spanGaps: true,
-					lineTension: 0,
+					lineTension: 0.2,
 					backgroundColor: "#2196f3",
 					borderColor: "#2196f3",
 					data: measurementMuscles
@@ -106,7 +110,7 @@
 					label: 'BMI',
 					fill: false,
 					spanGaps: true,
-					lineTension: 0,
+					lineTension: 0.2,
 					backgroundColor: "#43a047",
 					borderColor: "#43a047",
 					data: measurementBMI
