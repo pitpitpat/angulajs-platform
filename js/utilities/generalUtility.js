@@ -10,9 +10,9 @@
 
 			$rootScope.goToTop = function() {
 				window.scrollTo({
-				    top: 0,
-				    left: 0,
-				    behavior: "smooth"
+					top: 0,
+					left: 0,
+					behavior: "smooth"
 				});
 			}
 
@@ -47,6 +47,14 @@
 			};
 
 			return preparedTrainee;
+		};
+
+		generalUtilityFactory.getTraineeById = function(trainees, traineeId){
+			var trainee = trainees.find(function(trainee) {
+				return trainee.id === traineeId;
+			})
+
+			return trainee;
 		};
 
 		generalUtilityFactory.updateListItem = function(allItems, updatedItem, id){
@@ -135,6 +143,35 @@
 			} else if (response.data.code === "invalid_current_password") {
 				generalUtilityFactory.showToast("Λάθος παλιός κωδικός.", "danger");
 			}
+		}
+
+		generalUtilityFactory.getTraineeAge = function(trainee) {
+			today =  new Date();
+			return today.getFullYear() - trainee.birth_date.getFullYear();
+		}
+
+		generalUtilityFactory.getTraineesByAge = function(trainees, min, max) {
+			if (!min) {
+				min = -9999;
+			}
+
+			if (!max) {
+				max = 9999;
+			}
+
+			var traineesByAge = trainees.filter(function(trainee) {
+				return generalUtilityFactory.getTraineeAge(trainee) >= min && generalUtilityFactory.getTraineeAge(trainee) <= max;
+			});
+
+			return traineesByAge;
+		}
+
+		generalUtilityFactory.getTraineesByGender = function(trainees, gender) {
+			var traineesByGender = trainees.filter(function(trainee) {
+				return trainee.gender === gender;
+			});
+
+			return traineesByGender;
 		}
 
 		return generalUtilityFactory;
