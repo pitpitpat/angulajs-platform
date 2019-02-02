@@ -36,7 +36,7 @@
 		});
 
 		measurementDates = $scope.mergedMeasurements.allMeasurements.map(function(measurement) {
-			return generalUtility.prepareDate(measurement.measurement_date);
+			return measurement.measurement_date;
 		});
 		measurementWeights = $scope.mergedMeasurements.allMeasurements.map(function(measurement) {
 			return measurement.weight;
@@ -78,6 +78,19 @@
 				},
 				hover: {
 					mode: 'nearest'
+				},
+				scales: {
+					xAxes: [
+						{
+							type: 'time',
+							time: {
+								unit: 'month',
+								displayFormats: {
+									month: 'MMM YYYY'
+								}
+							}
+						}
+					]
 				}
 			}
 		});
@@ -125,6 +138,19 @@
 				},
 				hover: {
 					mode: 'nearest'
+				},
+				scales: {
+					xAxes: [
+						{
+							type: 'time',
+							time: {
+								unit: 'month',
+								displayFormats: {
+									month: 'MMM YYYY'
+								}
+							}
+						}
+					]
 				}
 			}
 		});
