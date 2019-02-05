@@ -43,7 +43,9 @@
 				emergency_phone: trainee.emergency_phone,
 				height: trainee.height,
 				weight: trainee.weight,
-				gender: trainee.gender
+				gender: trainee.gender,
+				registration_date: trainee.registration_date,
+				birth_date: trainee.birth_date
 			};
 
 			return preparedTrainee;
@@ -69,66 +71,20 @@
 			return allItems;
 		};
 
-		generalUtilityFactory.prepareListDates = function(list, predicate){
+		generalUtilityFactory.prepareObjectListDates = function(list, predicate){
 			var preparedList = angular.copy(list);
-
 			for (index in preparedList) {
 				var item = preparedList[index];
 				item[predicate] = new Date(item[predicate]);
 			}
-
 			return preparedList;
 		};
 
-		generalUtilityFactory.prepareMeasurementsByMonth = function(measurementsByMonth){
-			var preparedMeasurements = angular.copy(measurementsByMonth);
-
-			preparedMeasurements.january = generalUtilityFactory.prepareListDates(preparedMeasurements.january, "measurement_date");
-			preparedMeasurements.february = generalUtilityFactory.prepareListDates(preparedMeasurements.february, "measurement_date");
-			preparedMeasurements.march = generalUtilityFactory.prepareListDates(preparedMeasurements.march, "measurement_date");
-			preparedMeasurements.april = generalUtilityFactory.prepareListDates(preparedMeasurements.april, "measurement_date");
-			preparedMeasurements.may = generalUtilityFactory.prepareListDates(preparedMeasurements.may), "measurement_date";
-			preparedMeasurements.june = generalUtilityFactory.prepareListDates(preparedMeasurements.june, "measurement_date");
-			preparedMeasurements.july = generalUtilityFactory.prepareListDates(preparedMeasurements.july, "measurement_date");
-			preparedMeasurements.august = generalUtilityFactory.prepareListDates(preparedMeasurements.august, "measurement_date");
-			preparedMeasurements.september = generalUtilityFactory.prepareListDates(preparedMeasurements.september, "measurement_date");
-			preparedMeasurements.october = generalUtilityFactory.prepareListDates(preparedMeasurements.october, "measurement_date");
-			preparedMeasurements.november = generalUtilityFactory.prepareListDates(preparedMeasurements.november, "measurement_date");
-			preparedMeasurements.december = generalUtilityFactory.prepareListDates(preparedMeasurements.december, "measurement_date");
-
-			return preparedMeasurements;
-		};
-
-		generalUtilityFactory.fillList = function(destList, srcList){
+		generalUtilityFactory.extendList = function(destList, srcList){
 			for (index in srcList) {
 				var item = srcList[index];
 				destList.push(item);
 			}
-		};
-
-		generalUtilityFactory.mergeMeasurements = function(measurementsByMonth){
-			var allMeasurements = [];
-
-			generalUtilityFactory.fillList(allMeasurements, measurementsByMonth.january);
-			generalUtilityFactory.fillList(allMeasurements, measurementsByMonth.february);
-			generalUtilityFactory.fillList(allMeasurements, measurementsByMonth.march);
-			generalUtilityFactory.fillList(allMeasurements, measurementsByMonth.april);
-			generalUtilityFactory.fillList(allMeasurements, measurementsByMonth.may);
-			generalUtilityFactory.fillList(allMeasurements, measurementsByMonth.june);
-			generalUtilityFactory.fillList(allMeasurements, measurementsByMonth.july);
-			generalUtilityFactory.fillList(allMeasurements, measurementsByMonth.august);
-			generalUtilityFactory.fillList(allMeasurements, measurementsByMonth.september);
-			generalUtilityFactory.fillList(allMeasurements, measurementsByMonth.october);
-			generalUtilityFactory.fillList(allMeasurements, measurementsByMonth.november);
-			generalUtilityFactory.fillList(allMeasurements, measurementsByMonth.december);
-
-			var mergedMeasurements = {
-				id: measurementsByMonth.id,
-				trainee_id: measurementsByMonth.trainee_id,
-				allMeasurements: allMeasurements
-			};
-
-			return mergedMeasurements;
 		};
 
 		generalUtilityFactory.showToast = function(message, theme){

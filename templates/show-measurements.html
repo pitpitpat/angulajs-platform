@@ -15,7 +15,7 @@
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
-						<table st-table="displayedMeasurements" st-safe-src="mergedMeasurements.allMeasurements" class="table table-sm table-striped">
+						<table st-table="displayedMeasurements" st-safe-src="measurements" class="table table-sm table-striped">
 							<thead>
 								<tr>
 									<th colspan="2" class="border-top-0 border-bottom-0"><input st-search="" class="form-control" type="text" placeholder="Αναζήτηση..."/></th>
@@ -32,7 +32,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr ng-if="mergedMeasurements.allMeasurements.length === 0" class="fs-09 text-center">
+								<tr ng-if="measurements.length === 0" class="fs-09 text-center">
 									<td colspan="8">Δεν υπάρχουν μετρήσεις ακόμα.</td>
 								</tr>
 								<tr class="fs-09" ng-repeat="measurement in displayedMeasurements">

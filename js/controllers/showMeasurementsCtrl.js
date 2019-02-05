@@ -8,50 +8,44 @@
 
 		$scope.traineeId = $stateParams.ID;
 		$scope.trainee = generalUtility.getTraineeById($rootScope.allTrainees, $scope.traineeId);
-
-		$scope.measurementsByMonth = generalUtility.prepareMeasurementsByMonth(measurements.data.measurements);
-		$scope.mergedMeasurements = generalUtility.mergeMeasurements($scope.measurementsByMonth);
-
-		console.log($scope.measurementsByMonth);
-		console.log($scope.mergedMeasurements);
+		$scope.measurements = generalUtility.prepareObjectListDates(measurements.data.measurements, "measurement_date");
 
 		$scope.deleteMeasurement = function(id) {
 			$('[data-toggle="tooltip"]').tooltip('hide');
-			var measurement = $scope.mergedMeasurements.allMeasurements.find(function(measurement) {
+			var measurement = $scope.measurements.find(function(measurement) {
 				return measurement._id === id;
 			});
 
 			generalService.deleteMeasurement($scope.traineeId, measurement._id, measurement.measurement_date).then(function(response) {
-				var index = $scope.mergedMeasurements.allMeasurements.indexOf(measurement);
-				$scope.mergedMeasurements.allMeasurements.splice(index, 1);		// Must fix: not removed from $scope.measurementsByMonth
-				console.log(response.data);
+				var index = $scope.measurements.indexOf(measurement);
+				$scope.measurements.splice(index, 1);
 				generalUtility.showToast("Η μέτρηση διαγράφηκε.", "success");
 			});
 		}
 
 		/* ================= On start ================= */
 
-		$scope.mergedMeasurements.allMeasurements.sort(function(a, b) {			// Sort measurements by measurement date
+		console.log($scope.measurements);
+
+		$scope.measurements.sort(function(a, b) {			// Sort measurements by measurement date
 			return a.measurement_date.getTime() - b.measurement_date.getTime();
 		});
 
-		measurementDates = $scope.mergedMeasurements.allMeasurements.map(function(measurement) {
+		measurementDates = $scope.measurements.map(function(measurement) {
 			return measurement.measurement_date;
 		});
-		measurementWeights = $scope.mergedMeasurements.allMeasurements.map(function(measurement) {
+		measurementWeights = $scope.measurements.map(function(measurement) {
 			return measurement.weight;
 		});
-		measurementFats = $scope.mergedMeasurements.allMeasurements.map(function(measurement) {
+		measurementFats = $scope.measurements.map(function(measurement) {
 			return measurement.fat;
 		});
-		measurementMuscles = $scope.mergedMeasurements.allMeasurements.map(function(measurement) {
+		measurementMuscles = $scope.measurements.map(function(measurement) {
 			return measurement.muscle;
 		});
-		measurementBMI = $scope.mergedMeasurements.allMeasurements.map(function(measurement) {
+		measurementBMI = $scope.measurements.map(function(measurement) {
 			return measurement.bmi;
 		});
-
-		console.log(measurementDates, measurementWeights);
 
 		var ctx = document.getElementById("weightEvolution");
 		var myBarChart = new Chart(ctx, {
