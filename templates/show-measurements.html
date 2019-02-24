@@ -38,7 +38,10 @@
 									<td st-ratio="12">{{measurement.fat ? (measurement.fat + ' %') : '---'}}</td>
 									<td st-ratio="13">{{measurement.muscle ? (measurement.muscle + ' %') : '---'}}</td>
 									<td st-ratio="12">{{measurement.bmi ? measurement.bmi : '---'}}</td>
-									<td st-ratio="12">{{measurement.rm.value ? measurement.rm.value : '---'}}</td>
+									<td st-ratio="12">
+										{{measurement.rm.value ? measurement.rm.value : '---'}}
+										<span class="fs-07">{{measurement.rm.estimated ? '(ε.τ.)' : ''}}</span>
+									</td>
 									<td st-ratio="14">{{measurement.visceral ? measurement.visceral : '---'}}</td>
 									<td st-ratio="7" class="text-center">
 										<button type="button" ng-click="deleteMeasurement(measurement._id)" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Διαγραφή"><i class="far fa-trash-alt"></i></button>
