@@ -15,7 +15,7 @@
 			});
 		};
 
-		generalServiceFactory.getMeasurementsOfTrainee = function(traineeId) {
+		generalServiceFactory.getTraineeMeasurements = function(traineeId) {
 			var endpoint = '/measurement/get';
 			var url = $rootScope.healthmastersAPI + endpoint;
 
@@ -26,7 +26,7 @@
 			return $http({
 				method: "POST",
 				url: url,
-				headers: { 'Content-Type': 'application/json' },
+				headers: {'Content-Type': 'application/json'},
 				data: data
 			});
 		};
@@ -43,7 +43,7 @@
 			return $http({
 				method: "POST",
 				url: url,
-				headers: { 'Content-Type': 'application/json' },
+				headers: {'Content-Type': 'application/json'},
 				data: credentials
 			});
 		};
@@ -71,7 +71,7 @@
 			return $http({
 				method: "POST",
 				url: url,
-				headers: { 'Content-Type': 'application/json' },
+				headers: {'Content-Type': 'application/json'},
 				data: preparedNewTrainee
 			})
 			.catch(function(response) {
@@ -104,7 +104,7 @@
 			return $http({
 				method: "POST",
 				url: url,
-				headers: { 'Content-Type': 'application/json' },
+				headers: {'Content-Type': 'application/json'},
 				data: preparedTrainee
 			})
 			.catch(function(response) {
@@ -113,19 +113,19 @@
 			});
 		};
 
-		generalServiceFactory.insertNewMeasurementMonths = function(trainee) {
-			var endpoint = '/measurement/months/insert';
+		generalServiceFactory.deleteTrainee = function(traineeId) {
+			var endpoint = '/trainee/delete';
 			var url = $rootScope.healthmastersAPI + endpoint;
 
-			var preparedNewMeasurementMonths = {
-				trainee_id: trainee.id
+			var data = {
+				trainee_id: traineeId
 			};
 
 			return $http({
 				method: "POST",
 				url: url,
-				headers: { 'Content-Type': 'application/json' },
-				data: preparedNewMeasurementMonths
+				headers: {'Content-Type': 'application/json'},
+				data: data
 			})
 			.catch(function(response) {
 				generalUtility.showErrorToast(response);
@@ -151,7 +151,7 @@
 			return $http({
 				method: "POST",
 				url: url,
-				headers: { 'Content-Type': 'application/json' },
+				headers: {'Content-Type': 'application/json'},
 				data: preparedNewMeasurement
 			})
 			.catch(function(response) {
@@ -165,9 +165,7 @@
 			var url = $rootScope.healthmastersAPI + endpoint;
 
 			var data = {
-				trainee_id       : trainee_id,
-				measurement_id   : measurement_id,
-				measurement_date : generalUtility.prepareDate(measurement_date)
+				measurement_id: measurement_id
 			};
 
 			console.log(data);
@@ -175,7 +173,7 @@
 			return $http({
 				method: "POST",
 				url: url,
-				headers: { 'Content-Type': 'application/json' },
+				headers: {'Content-Type': 'application/json'},
 				data: data
 			})
 			.catch(function(response) {
@@ -206,7 +204,7 @@
 			return $http({
 				method: "POST",
 				url: url,
-				headers: { 'Content-Type': 'application/json' },
+				headers: {'Content-Type': 'application/json'},
 				data: data
 			})
 			.catch(function(response) {
@@ -227,7 +225,7 @@
 			return $http({
 				method: "POST",
 				url: url,
-				headers: { 'Content-Type': 'application/json' },
+				headers: {'Content-Type': 'application/json'},
 				data: data
 			})
 			.catch(function(response) {

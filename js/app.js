@@ -66,8 +66,8 @@
 					var trainee = $rootScope.allTrainees[index];
 					$rootScope.allTrainees[index].fullname = trainee.name + ' ' + trainee.surname;
 				}
-				$rootScope.allTrainees = generalUtility.prepareListDates($rootScope.allTrainees, "birth_date");
-				$rootScope.allTrainees = generalUtility.prepareListDates($rootScope.allTrainees, "registration_date");
+				$rootScope.allTrainees = generalUtility.prepareObjectListDates($rootScope.allTrainees, "birth_date");
+				$rootScope.allTrainees = generalUtility.prepareObjectListDates($rootScope.allTrainees, "registration_date");
 
 				if ($location.$$path === "/") {		// If no state is specified redirect to overview
 					$state.go("base.overview");
@@ -112,7 +112,7 @@
 			resolve: {
 				measurements: function($stateParams, generalService) {
 					var traineeId = $stateParams.ID;
-					return generalService.getMeasurementsOfTrainee(traineeId);
+					return generalService.getTraineeMeasurements(traineeId);
 				}
 			}
 		})
