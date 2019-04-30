@@ -353,7 +353,7 @@ footer.sticky-footer .copyright {
 
 @media (min-width: 768px) {
   footer.sticky-footer {
-    width: calc(100% - 209px);
+    width: calc(100% - 200px);
   }
 }
 
@@ -363,6 +363,6 @@ body.sidebar-toggled footer.sticky-footer {
 
 @media (min-width: 768px) {
   body.sidebar-toggled footer.sticky-footer {
-    width: calc(100% - 70px);
+    width: calc(100% - 62px);
   }
 }
