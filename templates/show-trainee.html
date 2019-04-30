@@ -3,42 +3,50 @@
 		<div class="card">
 			<div class="card-body">
 				<div class="table-responsive">
-					<table st-table="displayedTrainees" st-safe-src="allTrainees" class="table">
+					<table st-table="displayedTrainees" st-safe-src="filteredTrainees" class="table mb-0">
 						<thead>
-							<tr>
-								<th colspan="2" class="pt-1 pl-0 border-0">
-									<form class="form-inline">
-										<div class="input-group input-group-lg w-100 shadow-sm">
-											<div class="input-group-prepend">
-												<div class="input-group-text bg-white border-right-0"><i class="fa fa-search" aria-hidden="true"></i></div>
-											</div>
-											<input st-search="" class="form-control py-0 border-left-0" type="text" placeholder="Αναζήτηση...">
-										</div>
-									</form>
-								</th>
-							</tr>
 							<tr class="blue text-white shadow-sm">
-								<th st-ratio="20" st-sort="name">Όνομα</th>
-								<th st-ratio="20" st-sort="surname">Επίθετο</th>
-								<th st-ratio="10" st-sort="gender">Φύλο</th>
+								<th st-ratio="6">#</th>
+								<th st-ratio="5" st-sort="gender"></th>
+								<th st-ratio="43" st-sort="fullname">Όνομα</th>
 								<th st-ratio="30" st-sort="occupation">Επάγγελμα</th>
-								<th st-ratio="10" class="text-center">Στοιχεία</th>
-								<th st-ratio="10"></th>
+								<th st-ratio="8"></th>
+								<th st-ratio="8"></th>
 							</tr>
 						</thead>
 						<tbody>
+							<tr ng-if="displayedTrainees.length === 0">
+								<td colspan="6" class="text-center p-4">Κανένας διαθέσιμος ασκούμενος</td>
+							</tr>
 							<tr ng-repeat="trainee in displayedTrainees" ng-click="goToTraineeMeasurements(trainee.id)" class="hover-dark">
-								<td st-ratio="20">{{trainee.name}}</td>
-								<td st-ratio="30">{{trainee.surname}}</td>
-								<td st-ratio="10">
-									<i class="fas fa-2x ml-2" ng-class="{'fa-male text-primary': trainee.gender === 'male', 'fa-female text-pink': trainee.gender === 'female'}"></i>
+								<td>{{$index + 1}}</td>
+								<td>
+									<i class="fas fa-2x ml-2" ng-class="{
+										'fa-male text-primary': trainee.gender === 'male',
+										'fa-female text-pink': trainee.gender === 'female'}">
+									</i>
 								</td>
-								<td st-ratio="20">{{trainee.occupation ? trainee.occupation:'---'}}</td>
-								<td st-ratio="10" class="text-center">
-									<button ng-click="goToTraineeInfo(trainee.id);$event.stopPropagation();" type="button" class="btn btn-sm btn-light" data-toggle="tooltip" title="Στοιχεία"><i class="far fa-address-card"></i></button>
+								<td>
+									<span md-highlight-text="query" md-highlight-flags="i">{{trainee.fullname}}</span>
 								</td>
-								<td st-ratio="10" class="text-center">
-									<button ng-click="deleteTrainee(trainee.id);$event.stopPropagation();" type="button" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Διαγραφή"><i class="far fa-trash-alt"></i></button>
+								<td>{{trainee.occupation ? trainee.occupation:'---'}}</td>
+								<td class="text-center">
+									<button ng-click="goToTraineeInfo(trainee.id);$event.stopPropagation();"
+										type="button"
+										class="btn btn-sm btn-light"
+										data-toggle="tooltip"
+										title="Στοιχεία">
+										<i class="far fa-address-card"></i>
+									</button>
+								</td>
+								<td class="text-center">
+									<button ng-click="deleteTrainee(trainee.id);$event.stopPropagation();"
+										type="button"
+										class="btn btn-sm btn-danger"
+										data-toggle="tooltip"
+										title="Διαγραφή">
+										<i class="far fa-trash-alt"></i>
+									</button>
 								</td>
 							</tr>
 						</tbody>

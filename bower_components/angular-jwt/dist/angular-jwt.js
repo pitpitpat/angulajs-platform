@@ -203,7 +203,7 @@ angular.module('angular-jwt.interceptor', [])
         },
         responseError: function (response) {
           // handle the case where the user is not authenticated
-          if (response.status === 401) {
+          if (response !== undefined && response.status === 401) {
             $rootScope.$broadcast('unauthenticated', response);
           }
           return $q.reject(response);

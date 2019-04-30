@@ -1,0 +1,19 @@
+<form class="form-inline">
+    <div class="form-row">
+        <div class="form-group col mb-0">
+            <div class="input-group w-100 shadow-sm">
+                <div class="input-group-prepend">
+                    <div class="input-group-text bg-white border-right-0">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <input ng-model="$ctrl.query"
+                    ng-model-options="{debounce: 500}"
+                    ng-change="$ctrl.onQueryChange({query: $ctrl.query})"
+                    class="form-control py-0 border-left-0"
+                    type="text"
+                    placeholder="Αναζήτηση ασκούμενου..."/>
+            </div>
+        </div>
+    </div>
+</form>

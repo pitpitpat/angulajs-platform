@@ -17,7 +17,6 @@ module.exports = function(config) {
       'karma-chai',
       'karma-sinon-chai',
       'karma-chrome-launcher',
-      'karma-phantomjs-launcher',
       'karma-jquery',
       'karma-chai-jquery',
       'karma-mocha-reporter'
@@ -66,9 +65,21 @@ module.exports = function(config) {
     autoWatch: true,
 
 
+    customLaunchers: {
+      ChromeHeadless: {
+        base: 'Chrome',
+        flags: [
+          '--headless',
+          '--disable-gpu',
+          '--no-sandbox',
+          // Without a remote debugging port, Google Chrome exits immediately.
+          '--remote-debugging-port=9222'
+        ]
+      }
+    },
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: ['ChromeHeadless'],
 
 
     // Continuous Integration mode

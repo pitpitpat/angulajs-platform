@@ -1,0 +1,40 @@
+<ul class="sidebar navbar-nav nowrap" id="sidebarLinks">
+    <li class="nav-item">
+        <a class="nav-link" ui-sref="base.content.overview">
+            <img src="img/logo-healthmasters.png" class="navbar-logo" alt="sidebar-logo">
+            <span ng-if="!$ctrl.minimized" class="d-none d-md-inline">The Healthmasters</span>
+        </a>
+    </li>
+    <li class="nav-item" ng-class="{'active': $ctrl.currentState === 'overview'}">
+        <a class="nav-link" ui-sref="base.content.overview">
+            <i class="fas fa-eye"></i>
+            <span ng-if="!$ctrl.minimized" class="d-none d-md-inline">Συνολική Εικόνα</span>
+        </a>
+    </li>
+    <li class="nav-item" ng-class="{'active': $ctrl.currentState === 'find'}">
+        <a class="nav-link" id="findHeader" ui-sref="base.content.trainee.show" data-toggle="collapse" data-target="#findCollapse" aria-expanded="false" aria-controls="findCollapse">
+            <i class="fas fa-fw fa-users"></i>
+            <span ng-if="!$ctrl.minimized" class="d-none d-md-inline">Ασκούμενοι</span>
+        </a>
+    </li>
+    <li class="nav-item" ng-class="{'active': $ctrl.currentState === 'add'}">
+        <a class="nav-link" id="addHeader" href role="button" data-toggle="collapse" data-target="#addCollapse" aria-expanded="false" aria-controls="addCollapse">
+            <i class="fas fa-fw fa-plus"></i>
+            <span ng-if="!$ctrl.minimized" class="d-none d-md-inline">Προσθήκη</span>
+        </a>
+        <div id="addCollapse"
+            class="bg-white border-right collapse"
+            ng-class="{'text-center': $ctrl.minimized}"
+            aria-labelledby="addHeader"
+            data-parent="#sidebarLinks">
+            <a class="dropdown-item py-3 px-4 fs-09 d-block" ui-sref="base.content.trainee.add">
+                <i class="fas fa-user"></i>
+                <span ng-if="!$ctrl.minimized" class="d-none d-md-inline ml-1">Ασκούμενου</span>
+            </a>
+            <a class="dropdown-item py-3 px-4 fs-09 d-block" ui-sref="base.content.measurement.add">
+                <i class="fas fa-weight"></i>
+                <span ng-if="!$ctrl.minimized" class="d-none d-md-inline ml-1">Μέτρησης</span>
+            </a>
+        </div>
+    </li>
+</ul>
