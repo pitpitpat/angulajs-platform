@@ -1,1 +1,4 @@
-# Healthmasters Management Tool - Frontend
+# Gym Management Platform
+
+Management platform developed for gym owners.
+
