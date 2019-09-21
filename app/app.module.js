@@ -37,7 +37,7 @@ angular.module('healthmastersApp', [
 			}
 			return token;
 		},
-		whiteListedDomains: ['api.ppserver.me', 'localhost'],
+		whiteListedDomains: ['api.thehealthmasters.gr', 'localhost'],
 		unauthenticatedRedirectPath: '/logout'
 	});
 	$httpProvider.interceptors.push('jwtInterceptor');

@@ -4,7 +4,7 @@ angular.module('healthmastersApp')
 	var generalUtility = {};
 
 	generalUtility.initApp = function(){
-		$rootScope.healthmastersAPI = 'https://api.ppserver.me';
+		$rootScope.healthmastersAPI = 'https://api.thehealthmasters.gr';
 
 		$rootScope.sidebarMinimized = false;
 		$rootScope.toggleSidebar = () => {

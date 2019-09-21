@@ -8,7 +8,7 @@
 			email: null,
 			password: null
 		};
-		$rootScope.healthmastersAPI = 'https://api.ppserver.me';
+		$rootScope.healthmastersAPI = 'https://api.thehealthmasters.gr';
 
 		var login = function(email, password) {
 			var endpoint = '/login';
