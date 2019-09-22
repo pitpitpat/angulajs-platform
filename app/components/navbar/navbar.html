@@ -1,0 +1,13 @@
+<nav class="navbar navbar-expand navbar-light static-top shadow-none padding-15">
+    <sidebar-toggler on-click="$ctrl.onTogglerClick()"></sidebar-toggler>
+
+    <search-bar on-query-change="$ctrl.onSearchChange({query})"></search-bar>
+
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown no-arrow">
+
+            <avatar user="$ctrl.user"></avatar>
+
+        </li>
+    </ul>
+</nav>

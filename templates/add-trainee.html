@@ -1,54 +1,58 @@
 <div class="add-trainee">
 	<div class="row justify-content-center">
-		<div class="col">
+		<div class="col-md-6">
 			<div class="card">
-				<div class="card-header green lighten-1 text-white">
+				<div class="card-header">
 					<i class="fas fa-user mr-1"></i> Στοιχεία Ασκούμενου
 				</div>
 				<div class="card-body">
 					<form class="label-09" name="newTraineeForm">
 						<div class="form-row">
-							<div class="form-group col-md-4">
+							<div class="form-group col-md-6">
 								<label>Επίθετο</label><label class="text-danger">*</label>
 								<input ng-model="newTrainee.surname" type="text" class="form-control form-control-sm" placeholder="π.χ. Παπαδόπουλος" required>
 							</div>
-							<div class="form-group col-md-4">
+							<div class="form-group col-md-6">
 								<label>Όνομα</label><label class="text-danger">*</label>
 								<input ng-model="newTrainee.name" type="text" class="form-control form-control-sm" placeholder="π.χ. Γιάννης" required>
 							</div>
-							<div class="form-group col-md-4">
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-6">
 								<label>Απασχόληση</label>
 								<input ng-model="newTrainee.occupation" type="text" class="form-control form-control-sm" placeholder="π.χ. Καταστηματάρχης">
 							</div>
-						</div>
-						<div class="form-row">
-							<div class="form-group col-md-4">
+							<div class="form-group col-md-6">
 								<label>Πατρώνυμο</label>
 								<input ng-model="newTrainee.fathername" type="text" class="form-control form-control-sm" placeholder="π.χ. Νικόλαος">
 							</div>
-							<div class="form-group col-md-4">
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-6">
 								<label>Διεύθυνση Κατοικίας</label>
 								<input ng-model="newTrainee.address" type="text" class="form-control form-control-sm" placeholder="π.χ. Στρατηγού Μακρυγιάννη 10">
 							</div>
-							<div class="form-group col-md-4">
+							<div class="form-group col-md-6">
 								<label>Α.Δ.Τ.</label>
 								<input ng-model="newTrainee.adt" type="text" class="form-control form-control-sm" placeholder="π.χ. ΑΚ123456">
 							</div>
 						</div>
 						<div class="form-row">
-							<div class="form-group col-md-4">
+							<div class="form-group col-md-6">
 								<label>Τηλέφωνο Επικοινωνίας</label>
 								<input ng-model="newTrainee.contact_phone" type="tel" class="form-control form-control-sm" placeholder="π.χ. 2104855666" pattern="[0-9]{10}">
 							</div>
-							<div class="form-group col-md-4">
+							<div class="form-group col-md-6">
 								<label>Τηλέφωνο Ανάγκης</label>
 								<input ng-model="newTrainee.emergency_phone" type="tel" class="form-control form-control-sm" placeholder="π.χ. 2104855666" pattern="[0-9]{10}">
 							</div>
-							<div class="form-group col-md-2">
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-6">
 								<label>Ύψος</label>
 								<input ng-model="newTrainee.height" type="text" class="form-control form-control-sm" placeholder="π.χ. 1.85">
 							</div>
-							<div class="form-group col-md-2">
+							<div class="form-group col-md-6">
 								<label>Βάρος</label>
 								<input ng-model="newTrainee.weight" type="text" class="form-control form-control-sm" placeholder="π.χ. 82.5">
 							</div>
